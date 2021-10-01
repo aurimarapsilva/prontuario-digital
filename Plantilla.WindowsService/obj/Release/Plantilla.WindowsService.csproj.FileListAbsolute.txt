@@ -1,0 +1,11 @@
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\bin\Release\Plantilla.WindowsService.exe.config
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\bin\Release\Plantilla.WindowsService.exe
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\bin\Release\Plantilla.WindowsService.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\bin\Release\Plantilla.Utilitarios.dll
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\bin\Release\Plantilla.Utilitarios.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Release\Plantilla.WindowsService.ProjectInstaller.resources
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Release\Plantilla.WindowsService.csproj.GenerateResource.cache
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Release\Plantilla.WindowsService.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Release\Plantilla.WindowsService.csproj.CopyComplete
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Release\Plantilla.WindowsService.exe
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Release\Plantilla.WindowsService.pdb

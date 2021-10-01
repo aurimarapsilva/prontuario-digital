@@ -1,0 +1,10 @@
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\bin\Release\Plantilla.UIProcess.dll.config
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\bin\Release\Plantilla.UIProcess.dll
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\bin\Release\Plantilla.UIProcess.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\bin\Release\Plantilla.Objetos.dll
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\bin\Release\Plantilla.Objetos.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\obj\Release\Plantilla.UIProcess.csproj.AssemblyReference.cache
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\obj\Release\Plantilla.UIProcess.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\obj\Release\Plantilla.UIProcess.csproj.CopyComplete
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\obj\Release\Plantilla.UIProcess.dll
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.UIProcess\obj\Release\Plantilla.UIProcess.pdb
