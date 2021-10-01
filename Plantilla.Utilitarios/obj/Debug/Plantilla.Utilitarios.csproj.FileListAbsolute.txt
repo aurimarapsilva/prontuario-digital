@@ -1,0 +1,16 @@
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\bin\Debug\Plantilla.Utilitarios.dll
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\bin\Debug\Plantilla.Utilitarios.pdb
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csprojAssemblyReference.cache
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.Mensajes.Mensajes.resources
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.GenerateResource.cache
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.CoreCompileInputs.cache
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.dll
+C:\Users\ebrenes\Desktop\Plantilla\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\bin\Debug\Plantilla.Utilitarios.dll
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\bin\Debug\Plantilla.Utilitarios.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.Mensajes.Mensajes.resources
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.GenerateResource.cache
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.dll
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.pdb
+C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.AssemblyReference.cache

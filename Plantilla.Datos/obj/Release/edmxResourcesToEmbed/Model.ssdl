@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="BDModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Configuracion">
+    <Key>
+      <PropertyRef Name="IdConfiguracion" />
+    </Key>
+    <Property Name="IdConfiguracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="IdTipoConfiguracion" Type="int" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Valor" Type="int" Nullable="false" />
+    <Property Name="Estado" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TipoConfiguracion">
+    <Key>
+      <PropertyRef Name="IdTipoConfiguracion" />
+    </Key>
+    <Property Name="IdTipoConfiguracion" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Nombre" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <Association Name="FK_Configuracion_TipoConfiguracion">
+    <End Role="TipoConfiguracion" Type="Self.TipoConfiguracion" Multiplicity="1" />
+    <End Role="Configuracion" Type="Self.Configuracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TipoConfiguracion">
+        <PropertyRef Name="IdTipoConfiguracion" />
+      </Principal>
+      <Dependent Role="Configuracion">
+        <PropertyRef Name="IdTipoConfiguracion" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="pr_ObtieneConfiguracion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdConfiguracion" Type="int" Mode="In" />
+    <Parameter Name="Codigo" Type="smallint" Mode="InOut" />
+    <Parameter Name="Mensaje" Type="varchar" Mode="InOut" />
+  </Function>
+  <EntityContainer Name="BDModelStoreContainer">
+    <EntitySet Name="Configuracion" EntityType="Self.Configuracion" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TipoConfiguracion" EntityType="Self.TipoConfiguracion" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_Configuracion_TipoConfiguracion" Association="Self.FK_Configuracion_TipoConfiguracion">
+      <End Role="TipoConfiguracion" EntitySet="TipoConfiguracion" />
+      <End Role="Configuracion" EntitySet="Configuracion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
