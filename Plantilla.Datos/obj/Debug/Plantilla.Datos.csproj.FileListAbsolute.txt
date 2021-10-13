@@ -26,3 +26,17 @@ C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Datos\obj\Debug\Plantilla.Datos.c
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Datos\obj\Debug\Plantilla.Datos.csproj.CopyComplete
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Datos\obj\Debug\Plantilla.Datos.dll
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Datos\obj\Debug\Plantilla.Datos.pdb
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\Plantilla.Datos.dll.config
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\Plantilla.Datos.dll
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\Plantilla.Datos.pdb
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\EntityFramework.dll
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\Plantilla.Utilitarios.dll
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\Plantilla.Utilitarios.pdb
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\EntityFramework.xml
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\obj\Debug\Plantilla.Datos.csproj.AssemblyReference.cache
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\obj\Debug\Plantilla.Datos.csproj.CoreCompileInputs.cache
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\obj\Debug\Plantilla.Datos.csproj.CopyComplete
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\obj\Debug\Plantilla.Datos.dll
+C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.Datos\obj\Debug\Plantilla.Datos.pdb
