@@ -14,3 +14,10 @@ C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.U
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.dll
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.pdb
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.AssemblyReference.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\bin\Debug\Plantilla.Utilitarios.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\bin\Debug\Plantilla.Utilitarios.pdb
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.Mensajes.Mensajes.resources
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.GenerateResource.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Utilitarios\obj\Debug\Plantilla.Utilitarios.pdb

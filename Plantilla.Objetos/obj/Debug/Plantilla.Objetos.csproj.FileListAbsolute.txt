@@ -16,3 +16,11 @@ C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Debug\Plantilla.Objet
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.dll
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.pdb
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.csproj.AssemblyReference.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\bin\Debug\Plantilla.Objetos.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\bin\Debug\Plantilla.Objetos.pdb
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\bin\Debug\System.ValueTuple.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\bin\Debug\System.ValueTuple.xml
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.csproj.CopyComplete
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.Objetos\obj\Debug\Plantilla.Objetos.pdb
