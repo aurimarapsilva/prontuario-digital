@@ -55,7 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\LnConfiguracion.cs" />
+    <Compile Include="ProntuarioDigital.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProntuarioDigital.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Plantilla.Datos\Plantilla.Datos.csproj">
@@ -74,6 +84,21 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="ProntuarioDigital.xsc">
+      <DependentUpon>ProntuarioDigital.xsd</DependentUpon>
+    </None>
+    <None Include="ProntuarioDigital.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>ProntuarioDigital.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="ProntuarioDigital.xss">
+      <DependentUpon>ProntuarioDigital.xsd</DependentUpon>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <WCFMetadata Include="Connected Services\" />

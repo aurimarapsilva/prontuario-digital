@@ -10,7 +10,7 @@
 namespace Plantilla.Datos
 {
     using System;
-    
+
     public partial class pr_ObtieneConfiguracion_Result
     {
         public int IdConfiguracion { get; set; }
@@ -19,5 +19,215 @@ namespace Plantilla.Datos
         public string Nombre { get; set; }
         public int Valor { get; set; }
         public bool Estado { get; set; }
+    }
+
+    public partial class pr_Author_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string Email { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+
+    public partial class pr_Book_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public string BookName { get; set; }
+        public int EditorialId { get; set; }
+        public DateTime PublicationDate { get; set; }
+        public string PublicationUrl { get; set; }
+        public bool IsDleted { get; set; }
+    }
+
+    public partial class pr_CertyfingBody_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+    
+    }
+
+    public partial class pr_ObtieneCollegeDegreeDocument_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public int CollegeDegreeTypeId { get; set; }
+        public int Year { get; set; }
+        public int InstitutionId { get; set; }
+        public int CountryId { get; set; }
+        public bool IsDeleted { get; set; }
+    }
+
+    public partial class pr_ObtieneCollegeTypesSelect_Result
+    {
+        public int Id { get; set; }
+        public string Descripcion { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+    }
+
+    public partial class pr_Countries_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+     
+
+    }
+
+    public partial class pr_Editorial_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public string URL { get; set; }
+        public bool IsDeleted { get; set; }
+        public int CountryId { get; set; }
+    }
+
+    public partial class pr_Files_Result
+    {
+        public int Id { get; set; }
+        public int Consecutive { get; set; }
+        public string Name { get; set; }
+        public string URL { get; set; }
+        public bool IsDeleted { get; set; }
+        public int GenericDocumentId { get; set; }
+    }
+
+    public partial class pr_GenericDocument_Result
+    {
+        public int Id { get; set; }
+        public int Consecutive { get; set; }
+        public string Name { get; set; }
+        public string URL { get; set; }
+        public bool IsDeleted { get; set; }
+        public int GenericDocumentId { get; set; }
+    }
+
+    public partial class pr_Institutions_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+
+    }
+
+    public partial class pr_LanguageKnowledgeDocuments_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public int LanguageId { get; set; }
+        public int CertifyingBodyId{ get; set; }
+        public int Year { get; set; }
+        public bool IsDeleted { get; set; }
+
+    }
+    public partial class pr_LanguageKnowledgeLevels_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+        public int LanguageID { get; set; }
+        public string Score { get; set; }
+    }
+
+    public partial class pr_Languages_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+
+    }
+
+    public partial class pr_Magazines_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+
+    }
+
+    public partial class pr_MagazinesArticles_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public string ArticleName { get; set; }
+        public int MagazineId { get; set; }
+        public DateTime PublicationDate { get; set; }
+        public string PublicationUrl { get; set; }
+        public bool IsDleted { get; set; }
+    }
+
+    public partial class pr_Presentations_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public DateTime Evendate { get; set; }
+        public string Place { get; set; }
+        public string Name { get; set; }
+        public string Event { get; set; }
+        public bool IsDleted { get; set; }
+    }
+
+    public partial class pr_Regulations_Result
+    {
+        public int Id { get; set; }
+        public int Consecutive { get; set; }
+        public string Name { get; set; }
+        public string Content { get; set; }
+        public bool IsDleted { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified{ get; set; }
+    }
+
+    public partial class pr_ResearchProjects_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public int ProjectCode { get; set; }
+        public string ProjectName { get; set; }
+        public int ProjectStartYear { get; set; }
+        public int ProjectEndYear { get; set; }
+        public bool IsValited { get; set; }
+        public bool IsDleted { get; set; }
+    }
+
+    public partial class pr_Tips_Result
+    {
+        public int Id { get; set; }
+        public int Consecutive { get; set; }
+        public string Name { get; set; }
+        public string Content { get; set; }
+        public bool IsDleted { get; set; }
+        public DateTime Created { get; set; }
+        public DateTime Modified { get; set; }
+    }
+
+    public partial class pr_Training_Result
+    {
+        public int Id { get; set; }
+        public int GenericDocumentId { get; set; }
+        public string Name { get; set; }
+        public DateTime TrainingStartDate { get; set; }
+        public DateTime TrainingEndDate { get; set; }
+        public int TrainingHours { get; set; }
+        public int TrainigEntityId { get; set; }
+        public bool IsDleted { get; set; }
+
+    }
+
+    public partial class pr_TrainingEntities_Result
+    {
+        public int Id { get; set; }
+        public string Name { get; set; }
+        public bool IsDeleted { get; set; }
+        public bool IsUserDefined { get; set; }
+
     }
 }
