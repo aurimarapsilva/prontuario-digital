@@ -1,9 +1,9 @@
 .vs
-Plantilla.Negocios/obj/*
-Plantilla.UI/obj/*
-Plantilla.Datos/obj/*
-Plantilla.Objetos/obj/*
-Plantilla.Negocios/bin/*
-Plantilla.UI/bin/*
-Plantilla.Datos/bin/*
-Plantilla.Objetos/bin/*
+Plantilla.Negocios/obj/
+Plantilla.UI/obj/
+Plantilla.Datos/obj/
+Plantilla.Objetos/obj/
+Plantilla.Negocios/bin/
+Plantilla.UI/bin/
+Plantilla.Datos/bin/
+Plantilla.Objetos/bin/

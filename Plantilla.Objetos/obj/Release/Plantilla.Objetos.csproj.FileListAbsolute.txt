@@ -1,9 +1,0 @@
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\bin\Release\Plantilla.Objetos.dll
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\bin\Release\Plantilla.Objetos.pdb
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\bin\Release\System.ValueTuple.dll
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\bin\Release\System.ValueTuple.xml
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Release\Plantilla.Objetos.csproj.AssemblyReference.cache
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Release\Plantilla.Objetos.csproj.CoreCompileInputs.cache
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Release\Plantilla.Objetos.csproj.CopyComplete
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Release\Plantilla.Objetos.dll
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Objetos\obj\Release\Plantilla.Objetos.pdb
