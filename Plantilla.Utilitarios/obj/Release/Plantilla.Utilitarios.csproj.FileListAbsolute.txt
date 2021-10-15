@@ -1,7 +1,0 @@
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\bin\Release\Plantilla.Utilitarios.dll
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\bin\Release\Plantilla.Utilitarios.pdb
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Release\Plantilla.Utilitarios.Mensajes.Mensajes.resources
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Release\Plantilla.Utilitarios.csproj.GenerateResource.cache
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Release\Plantilla.Utilitarios.csproj.CoreCompileInputs.cache
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Release\Plantilla.Utilitarios.dll
-C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.Utilitarios\obj\Release\Plantilla.Utilitarios.pdb
