@@ -22,3 +22,14 @@ C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Debug\Plantill
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.exe
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.pdb
 C:\Users\Yuberth\Documents\PLANTILLA\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.csproj.AssemblyReference.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\bin\Debug\Plantilla.WindowsService.exe.config
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\bin\Debug\Plantilla.WindowsService.exe
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\bin\Debug\Plantilla.WindowsService.pdb
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\bin\Debug\Plantilla.Utilitarios.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\bin\Debug\Plantilla.Utilitarios.pdb
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.ProjectInstaller.resources
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.csproj.GenerateResource.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.csproj.CopyComplete
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.exe
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.WindowsService\obj\Debug\Plantilla.WindowsService.pdb
