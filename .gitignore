@@ -1,1 +1,5 @@
 .vs
+Plantilla.Negocios/obj/Debug/*
+Plantilla.UI/obj/Debug/*
+Plantilla.Datos/obj/Debug/*
+Plantilla.Objetos/obj/Debug/*
