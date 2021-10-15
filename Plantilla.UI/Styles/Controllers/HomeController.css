@@ -1,0 +1,35 @@
+﻿.table > thead > tr > th{
+    background-color: #DEE7E7;
+    padding-top: 10px;
+}
+
+.btn {
+    background-color: #0B2E49;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 12px;
+    margin: 15px 5px;
+    padding: 4px 18px;
+}
+
+.documentTable {
+    border: 0px solid #b8b8b8;
+    border-radius: 10px;
+    border-color: #b8b8b8;
+    box-shadow: 0px 0px 5px 1px #b8b8b8;
+}
+
+.pageTitle {
+    margin-top: 18px;
+    margin-left: 15px;
+}
+
+.tableContainer {
+    padding: 0px 0px;
+}
+
+.btn-group-style {
+    margin-right: 15px;
+}
