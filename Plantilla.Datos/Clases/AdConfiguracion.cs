@@ -6,10 +6,11 @@ using System.Linq;
 using System.Reflection;
 
 namespace Plantilla.Datos.Clases
+
 {
     public class AdConfiguracion
-    {
-        #region Consultar
+    { }
+  /*      #region Consultar
         /// <summary>
         /// Obtiene los participantes de una reunión
         /// </summary>
@@ -46,7 +47,7 @@ namespace Plantilla.Datos.Clases
         #endregion
     }
 
-
+    
     public class CollegeDegreeDocuments
     {
         #region 
@@ -54,7 +55,7 @@ namespace Plantilla.Datos.Clases
         /// Obtiene los participantes de una reunión
         /// </summary>
         /// <returns></returns>
-        public Tuple<List<pr_ObtieneCollegeDegreeDocument_Result>, int, string> ConsultarConfiguracion(int? Id)
+        public Tuple<List<pr_ObtieneCollegeDegreeDocument_Result>, int, string> CollegeDegreeDocumentSelect(int? Id)
         {
             try
             {
@@ -82,7 +83,33 @@ namespace Plantilla.Datos.Clases
             }
         }
 
+        public Tuple<List<pr_ObtieneCollegeDegreeDocument_Result>, int, string> CollegeDegreeDocumentDelete(int? Id)
+        {
+            try
+            {
+                dbProntuarioDigital db = new dbProntuarioDigital();
+                ObjectParameter codigo = new ObjectParameter("Codigo", typeof(int));
+                ObjectParameter mensaje = new ObjectParameter("Mensaje", typeof(string));
 
+                var qConsulta = db.usp_CollegeDegreeDocumentGet().ToList();
+
+                //Validación de Éxito
+                if (Convert.ToInt32(codigo.Value) == Constantes.Respuesta.CODIGOERROR)
+                {
+                    var tResultadoErroneo = new Tuple<List<pr_ObtieneCollegeDegreeDocument_Result>, int, string>(null, Convert.ToInt32(codigo.Value), mensaje.Value.ToString());
+                    return tResultadoErroneo;
+                }
+                else
+                {
+                    var tResultado = new Tuple<List<pr_ObtieneCollegeDegreeDocument_Result>, int, string>(qConsulta, Convert.ToInt32(codigo.Value), mensaje.Value.ToString());
+                    return tResultado;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(MethodBase.GetCurrentMethod().Name.ToString(), ex);
+            }
+        }
         #endregion
 
 
@@ -98,11 +125,11 @@ namespace Plantilla.Datos.Clases
         /// Obtiene los participantes de una reunión
         /// </summary>
         /// <returns></returns>
-        public Tuple<List<pr_Countries_Result>, int, string> ConsultarConfiguracion(int? Id)
+        public Tuple<List<usp_CountriesGet_Result>, int, string> ConsultarCountries(int? Id)
         {
             try
             {
-                dbProntuarioDigital db = new dbProntuarioDigital();
+                ProntuarioDigitalEntities db = new ProntuarioDigitalEntities();
                 ObjectParameter codigo = new ObjectParameter("Codigo", typeof(int));
                 ObjectParameter mensaje = new ObjectParameter("Mensaje", typeof(string));
 
@@ -132,8 +159,8 @@ namespace Plantilla.Datos.Clases
 
 
 
-    }
-
+    }*/
+    /*
     public class Editorial
     {
         public Tuple<List<pr_Editorial_Result>, int, string> ConsultarConfiguracion(int? Id)
@@ -208,11 +235,11 @@ namespace Plantilla.Datos.Clases
         {
             try
             {
-                dbProntuarioDigital db = new dbProntuarioDigital();
+                masterProntuario db = new masterProntuario();
                 ObjectParameter codigo = new ObjectParameter("Codigo", typeof(int));
                 ObjectParameter mensaje = new ObjectParameter("Mensaje", typeof(string));
 
-                var qConsulta = db.usp_GenericDocumentSelect(Id).ToList();
+                var qConsulta = db.(Id).ToList();
 
                 //Validación de Éxito
                 if (Convert.ToInt32(codigo.Value) == Constantes.Respuesta.CODIGOERROR)
@@ -710,7 +737,7 @@ namespace Plantilla.Datos.Clases
 
 
 
-    }
+    }*/
 
 
 }

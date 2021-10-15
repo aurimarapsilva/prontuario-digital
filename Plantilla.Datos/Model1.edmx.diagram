@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7830cb474e1d44c78f4c8ef3b00a33e6" Name="Diagram1">
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Authors" Width="1.5" PointX="8.25" PointY="7.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.AuthorXBook" Width="1.5" PointX="10.5" PointY="15.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Books" Width="1.5" PointX="5.25" PointY="15.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.CertifyingBody" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.CollegeDegreeDocuments" Width="1.5" PointX="8.25" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.CollegeDegreeTypes" Width="1.5" PointX="6" PointY="23.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Countries" Width="1.5" PointX="0.75" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Editorial" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Files" Width="1.5" PointX="5.25" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.GenericDocument" Width="1.5" PointX="3" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Institutions" Width="1.5" PointX="6" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.LanguageKnowledgeDocuments" Width="1.5" PointX="5.25" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.LanguageKnowledgeLevels" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Languages" Width="1.5" PointX="3" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Magazines" Width="1.5" PointX="6" PointY="7.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.MagazinesArticles" Width="1.5" PointX="8.25" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Presentations" Width="1.5" PointX="5.25" PointY="29.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Regulations" Width="1.5" PointX="0.75" PointY="15.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.ResearchProject" Width="1.5" PointX="5.25" PointY="33.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Tips" Width="1.5" PointX="0.75" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.Training" Width="1.5" PointX="8.25" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.TrainingEntities" Width="1.5" PointX="6" PointY="4.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="ProntuarioDigitalModel.AuthorXArticle" Width="1.5" PointX="10.5" PointY="11.5" IsExpanded="true" />
+        <AssociationConnector Association="ProntuarioDigitalModel.AuthorXArticle_Authors_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.AuthorXBook_Authors_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.AuthorXBook_Books_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Books_Editorial_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Books_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.LanguageKnowledgeDocuments_CertifyingBody_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.CollegeDegreeDocuments_CollegeDegreeTypes_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.CollegeDegreeDocuments_Countries_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.CollegeDegreeDocuments_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.CollegeDegreeDocuments_Institutions_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Country___fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Files_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.FK_GenericDocument_Regulations" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.FK_GenericDocument_Tips" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.LanguageKnowledgeDocuments_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.MagazinesArticles_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Presentations_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.ResearchProject_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Training_GenericDocument_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.LanguageKnowledgeDocuments_Languages_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.FK_LanguageKnowledgeLevels_Languages" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.MagazinesArticles_Magazines_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.AuthorXArticle_MagazinesArticles_Id_fk" ManuallyRouted="false" />
+        <AssociationConnector Association="ProntuarioDigitalModel.Training_TrainingEntities_Id_fk" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
