@@ -1,0 +1,10 @@
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\bin\Debug\Plantilla.UIProcess.dll.config
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\bin\Debug\Plantilla.UIProcess.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\bin\Debug\Plantilla.UIProcess.pdb
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\bin\Debug\Plantilla.Objetos.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\bin\Debug\Plantilla.Objetos.pdb
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\obj\Debug\Plantilla.UIProcess.csproj.AssemblyReference.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\obj\Debug\Plantilla.UIProcess.csproj.CoreCompileInputs.cache
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\obj\Debug\Plantilla.UIProcess.csproj.CopyComplete
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\obj\Debug\Plantilla.UIProcess.dll
+C:\Users\Yuberth\Projects\prontuario-digital\Plantilla.UIProcess\obj\Debug\Plantilla.UIProcess.pdb

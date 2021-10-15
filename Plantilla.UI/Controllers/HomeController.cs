@@ -6,11 +6,8 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.WebPages;
-<<<<<<< HEAD
 using Plantilla.Datos;
-=======
 using Newtonsoft.Json.Linq;
->>>>>>> dev
 
 namespace Plantilla.UI.Controllers
 {
@@ -32,7 +29,6 @@ namespace Plantilla.UI.Controllers
 
         public ActionResult Index()
         {
-<<<<<<< HEAD
             //if (Session["usuarioLogueado"] != null)
             //{
             //    ViewBag.NombreUsuario = Session["usuarioLogueado"].ToString();
@@ -56,41 +52,17 @@ namespace Plantilla.UI.Controllers
             //{
             //    return RedirectToAction("Index", "Login");
             //}
-            Datos.Clases.CountriesD cd = new Datos.Clases.CountriesD();
+            //Datos.Clases.CountriesD cd = new Datos.Clases.CountriesD();
 
-            List<usp_CountriesGet_Result> res = cd.ConsultarCountries();
+            //List<usp_CountriesGet_Result> res = cd.ConsultarCountries();
 
-            foreach (usp_CountriesGet_Result country in res)
+            /*foreach (usp_CountriesGet_Result country in res)
             {
                 Console.Write($"{country.Name} ");
                 Console.Write("Hola mundo");
             }
+            return View();*/
             return View();
-=======
-           /* if (Session["usuarioLogueado"] != null)
-            {
-                ViewBag.NombreUsuario = Session["usuarioLogueado"].ToString();
-                ViewBag.NombreCompleto = Session["usuarioLogueado"].ToString();
-                //inicializa el controller de Login para obtener el menú.
-                LoginController controllerPermiso = new LoginController();
-                controllerPermiso.InitializeController(this.Request.RequestContext);
-                JsonResult respuesta = controllerPermiso.ConsultarPermisosUsuario(0);
-                Session["PermisosMenu"] = respuesta.Data;
-                Session["IdTipoPermiso"] = ConfigurationManager.AppSettings["TipoPermiso"];
-
-                string _url = Request.Url.ToString();
-                //Consulta permiso de acceso a URL
-                //bool tieneAcceso = TieneAccesoAView(respuesta.Data, _url);
-                bool tieneAcceso = true;
-                if (tieneAcceso == false) { return RedirectToAction("PaginaInvalida", "Login"); }
-           */
-                return View();
-            /*}
-            else
-            {
-                return RedirectToAction("Index", "Login");
-            }*/
->>>>>>> dev
         }
 
         public ActionResult CollegeDegreeDocuments()
