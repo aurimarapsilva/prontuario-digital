@@ -91,8 +91,6 @@ C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\RestSharp.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\System.IdentityModel.Tokens.Jwt.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.Datos.dll
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\AutoMapper.dll
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\System.ValueTuple.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.Negocios.pdb
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.Negocios.dll.config
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.Objetos.pdb
@@ -107,9 +105,6 @@ C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\RestSharp.
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\System.IdentityModel.Tokens.Jwt.xml
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.Datos.pdb
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\Plantilla.Datos.dll.config
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\AutoMapper.pdb
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\AutoMapper.xml
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\bin\System.ValueTuple.xml
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\obj\Debug\Plantilla.WCF.csproj.AssemblyReference.cache
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\obj\Debug\Plantilla.WCF.csproj.CoreCompileInputs.cache
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.WCF\obj\Debug\Plantilla.WCF.csproj.CopyComplete

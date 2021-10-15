@@ -220,8 +220,6 @@ C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.Web.
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.Web.WebPages.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.Web.WebPages.Razor.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\WebGrease.dll
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\AutoMapper.dll
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.ValueTuple.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\Plantilla.Datos.pdb
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\Plantilla.Datos.dll.config
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\Plantilla.Negocios.pdb
@@ -257,9 +255,6 @@ C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.Web.
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.Web.WebPages.Razor.xml
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\Newtonsoft.Json.xml
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\Antlr3.Runtime.pdb
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\AutoMapper.pdb
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\AutoMapper.xml
-C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\System.ValueTuple.xml
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\es\System.Web.Helpers.resources.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\es\System.Web.Mvc.resources.dll
 C:\Users\Andres\Documents\GitHub\prontuario-digital\Plantilla.UI\bin\es\System.Web.Optimization.resources.dll

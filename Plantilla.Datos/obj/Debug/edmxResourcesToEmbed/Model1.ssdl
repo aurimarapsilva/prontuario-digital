@@ -1,0 +1,1136 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="ProntuarioDigitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Authors">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+  <EntityType Name="AuthorXArticle">
+    <Key>
+      <PropertyRef Name="Id" />
+      <PropertyRef Name="AuthorId" />
+      <PropertyRef Name="ArticleId" />
+      <PropertyRef Name="IsDeleted" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="ArticleId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="AuthorXBook">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AuthorId" Type="int" Nullable="false" />
+    <Property Name="BookId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Books">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="BookName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EditorialId" Type="int" Nullable="false" />
+    <Property Name="PublicationDate" Type="date" Nullable="false" />
+    <Property Name="PublicationURL" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsDeleted " Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CertifyingBody">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsUserDefined" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CollegeDegreeDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="CollegeDegreeTypeId" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="InstitutionId" Type="int" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="CollegeDegreeTypes">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Description" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsUserDefined" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Countries">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Editorial">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="URL" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="CountryId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Files">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Consecutive" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="URL" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+  </EntityType>
+  <EntityType Name="GenericDocument">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Consecutive" Type="int" Nullable="false" />
+    <Property Name="RegulationId" Type="int" Nullable="false" />
+    <Property Name="TipsId" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Institutions">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" />
+    <Property Name="IsDeleted" Type="bit" />
+    <Property Name="IsUserDefined" Type="bit" />
+  </EntityType>
+  <EntityType Name="LanguageKnowledgeDocuments">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="CertifyingBoydId" Type="int" Nullable="false" />
+    <Property Name="Year" Type="int" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="LanguageKnowledgeLevels">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsUserDefined" Type="bit" Nullable="false" />
+    <Property Name="LanguageId" Type="int" Nullable="false" />
+    <Property Name="Score" Type="varchar" MaxLength="15" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Languages">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsUserDefined" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Magazines">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="URL" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="MagazinesArticles">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="ArticleName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="MagazineId" Type="int" Nullable="false" />
+    <Property Name="PublicationDate" Type="date" Nullable="false" />
+    <Property Name="PublicationUrl" Type="varchar" MaxLength="200" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Presentations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="EventDate" Type="date" Nullable="false" />
+    <Property Name="Place" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Event" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Regulations">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Consecutive" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ResearchProject">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="ProjectCode" Type="int" Nullable="false" />
+    <Property Name="ProjectName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="ProjectStartYear" Type="int" Nullable="false" />
+    <Property Name="ProjectEndYear" Type="int" Nullable="false" />
+    <Property Name="IsValited" Type="bit" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Tips">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Consecutive" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Content" Type="varchar" MaxLength="250" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="Created" Type="datetime" Nullable="false" />
+    <Property Name="Modified" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Training">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="GenericDocumentId" Type="int" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="TrainingStarDate" Type="date" Nullable="false" />
+    <Property Name="TrainingEndDate" Type="date" Nullable="false" />
+    <Property Name="TrainingHours" Type="int" Nullable="false" />
+    <Property Name="TrainingEntityId" Type="int" Nullable="false" />
+    <Property Name="isDeleted" Type="bit" Nullable="false" />
+  </EntityType>
+  <EntityType Name="TrainingEntities">
+    <Key>
+      <PropertyRef Name="Id" />
+    </Key>
+    <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="IsDeleted" Type="bit" Nullable="false" />
+    <Property Name="IsUserDefined" Type="bit" Nullable="false" />
+  </EntityType>
+  <Association Name="AuthorXArticle_Authors_Id_fk">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="AuthorXArticle" Type="Self.AuthorXArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthorXArticle">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AuthorXArticle_MagazinesArticles_Id_fk">
+    <End Role="MagazinesArticles" Type="Self.MagazinesArticles" Multiplicity="1" />
+    <End Role="AuthorXArticle" Type="Self.AuthorXArticle" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="MagazinesArticles">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthorXArticle">
+        <PropertyRef Name="ArticleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AuthorXBook_Authors_Id_fk">
+    <End Role="Authors" Type="Self.Authors" Multiplicity="1" />
+    <End Role="AuthorXBook" Type="Self.AuthorXBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Authors">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthorXBook">
+        <PropertyRef Name="AuthorId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="AuthorXBook_Books_Id_fk">
+    <End Role="Books" Type="Self.Books" Multiplicity="1" />
+    <End Role="AuthorXBook" Type="Self.AuthorXBook" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Books">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="AuthorXBook">
+        <PropertyRef Name="BookId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Books_Editorial_Id_fk">
+    <End Role="Editorial" Type="Self.Editorial" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Editorial">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="EditorialId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Books_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="Books" Type="Self.Books" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Books">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CollegeDegreeDocuments_CollegeDegreeTypes_Id_fk">
+    <End Role="CollegeDegreeTypes" Type="Self.CollegeDegreeTypes" Multiplicity="1" />
+    <End Role="CollegeDegreeDocuments" Type="Self.CollegeDegreeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CollegeDegreeTypes">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CollegeDegreeDocuments">
+        <PropertyRef Name="CollegeDegreeTypeId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CollegeDegreeDocuments_Countries_Id_fk">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="CollegeDegreeDocuments" Type="Self.CollegeDegreeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CollegeDegreeDocuments">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CollegeDegreeDocuments_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="CollegeDegreeDocuments" Type="Self.CollegeDegreeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CollegeDegreeDocuments">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="CollegeDegreeDocuments_Institutions_Id_fk">
+    <End Role="Institutions" Type="Self.Institutions" Multiplicity="1" />
+    <End Role="CollegeDegreeDocuments" Type="Self.CollegeDegreeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Institutions">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="CollegeDegreeDocuments">
+        <PropertyRef Name="InstitutionId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Country___fk">
+    <End Role="Countries" Type="Self.Countries" Multiplicity="1" />
+    <End Role="Editorial" Type="Self.Editorial" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Countries">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Editorial">
+        <PropertyRef Name="CountryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Files_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="Files" Type="Self.Files" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Files">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GenericDocument_Regulations">
+    <End Role="Regulations" Type="Self.Regulations" Multiplicity="1" />
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Regulations">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GenericDocument">
+        <PropertyRef Name="RegulationId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GenericDocument_Tips">
+    <End Role="Tips" Type="Self.Tips" Multiplicity="1" />
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Tips">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="GenericDocument">
+        <PropertyRef Name="TipsId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_LanguageKnowledgeLevels_Languages">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="LanguageKnowledgeLevels" Type="Self.LanguageKnowledgeLevels" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageKnowledgeLevels">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LanguageKnowledgeDocuments_CertifyingBody_Id_fk">
+    <End Role="CertifyingBody" Type="Self.CertifyingBody" Multiplicity="1" />
+    <End Role="LanguageKnowledgeDocuments" Type="Self.LanguageKnowledgeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="CertifyingBody">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageKnowledgeDocuments">
+        <PropertyRef Name="CertifyingBoydId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LanguageKnowledgeDocuments_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="LanguageKnowledgeDocuments" Type="Self.LanguageKnowledgeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageKnowledgeDocuments">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="LanguageKnowledgeDocuments_Languages_Id_fk">
+    <End Role="Languages" Type="Self.Languages" Multiplicity="1" />
+    <End Role="LanguageKnowledgeDocuments" Type="Self.LanguageKnowledgeDocuments" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Languages">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="LanguageKnowledgeDocuments">
+        <PropertyRef Name="LanguageId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MagazinesArticles_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="MagazinesArticles" Type="Self.MagazinesArticles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MagazinesArticles">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="MagazinesArticles_Magazines_Id_fk">
+    <End Role="Magazines" Type="Self.Magazines" Multiplicity="1" />
+    <End Role="MagazinesArticles" Type="Self.MagazinesArticles" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Magazines">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="MagazinesArticles">
+        <PropertyRef Name="MagazineId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Presentations_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="Presentations" Type="Self.Presentations" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Presentations">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="ResearchProject_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="ResearchProject" Type="Self.ResearchProject" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="ResearchProject">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Training_GenericDocument_Id_fk">
+    <End Role="GenericDocument" Type="Self.GenericDocument" Multiplicity="1" />
+    <End Role="Training" Type="Self.Training" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GenericDocument">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Training">
+        <PropertyRef Name="GenericDocumentId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="Training_TrainingEntities_Id_fk">
+    <End Role="TrainingEntities" Type="Self.TrainingEntities" Multiplicity="1" />
+    <End Role="Training" Type="Self.Training" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="TrainingEntities">
+        <PropertyRef Name="Id" />
+      </Principal>
+      <Dependent Role="Training">
+        <PropertyRef Name="TrainingEntityId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="usp_AuthorsByArticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorsExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXArticleDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXArticleInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AuthorId" Type="int" Mode="In" />
+    <Parameter Name="ArticleId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXArticleSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXArticleUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="AuthorId" Type="int" Mode="In" />
+    <Parameter Name="ArticleId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXBookDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXBookInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="AuthorId" Type="int" Mode="In" />
+    <Parameter Name="BookId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXBookSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_AuthorXBookUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="AuthorId" Type="int" Mode="In" />
+    <Parameter Name="BookId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_BooksDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_BooksInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="BookName" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+    <Parameter Name="EditorialName" Type="varchar" Mode="In" />
+    <Parameter Name="PublicationDate" Type="date" Mode="In" />
+    <Parameter Name="PublicationURL" Type="varchar" Mode="In" />
+    <Parameter Name="Authors" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_BooksSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_BooksUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="BookName" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+    <Parameter Name="EditorialName" Type="varchar" Mode="In" />
+    <Parameter Name="PublicationDate" Type="date" Mode="In" />
+    <Parameter Name="PublicationURL" Type="varchar" Mode="In" />
+    <Parameter Name="Authors" Type="varchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_CertifyingBodyDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CertifyingBodyExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CertifyingBodyGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_CertifyingBodyInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_CertifyingBodySelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CertifyingBodyUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeDocumentsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeDocumentsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="CollegeDegreeType" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Institution" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeDocumentsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeDocumentsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="CollegeDegreeType" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Institution" Type="varchar" Mode="In" />
+    <Parameter Name="Country" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeTypesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeTypesExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeTypesGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_CollegeDegreeTypesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeTypesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CollegeDegreeTypesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Description" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_CountriesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CountriesExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CountriesGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_CountriesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_CountriesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_CountriesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_EditorialDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EditorialExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EditorialInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EditorialSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_EditorialUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="CountryId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_FilesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_FilesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_FilesInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Consecutive" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_FilesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_FilesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GenericDocumentDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GenericDocumentInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="RegulationId" Type="int" Mode="In" />
+    <Parameter Name="TipsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GenericDocumentInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Consecutive" Type="int" Mode="In" />
+    <Parameter Name="RegulationId" Type="int" Mode="In" />
+    <Parameter Name="TipsId" Type="int" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_GenericDocumentSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_GenericDocumentUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="RegulationId" Type="int" Mode="In" />
+    <Parameter Name="TipsId" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InstitutionsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InstitutionsExist" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_InstitutionsGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_InstitutionsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_InstitutionsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_InstitutionsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeDocumentsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeDocumentsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="Language" Type="varchar" Mode="In" />
+    <Parameter Name="CertifyingBoyd" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Levels" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeDocumentsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeDocumentsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="Language" Type="varchar" Mode="In" />
+    <Parameter Name="CertifyingBoyd" Type="varchar" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+    <Parameter Name="Levels" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeLevelsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeLevelsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+    <Parameter Name="LanguageId" Type="int" Mode="In" />
+    <Parameter Name="Score" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeLevelsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguageKnowledgeLevelsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguagesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguagesExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguagesGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_LanguagesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguagesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_LanguagesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazineExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesArticlesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesArticlesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="ArticleName" Type="varchar" Mode="In" />
+    <Parameter Name="MagazineName" Type="varchar" Mode="In" />
+    <Parameter Name="MagazineURL" Type="varchar" Mode="In" />
+    <Parameter Name="PublicationDate" Type="date" Mode="In" />
+    <Parameter Name="PublicationUrl" Type="varchar" Mode="In" />
+    <Parameter Name="Authors" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesArticlesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesArticlesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="ArticleName" Type="varchar" Mode="In" />
+    <Parameter Name="MagazineName" Type="varchar" Mode="In" />
+    <Parameter Name="MagazineURL" Type="varchar" Mode="In" />
+    <Parameter Name="PublicationDate" Type="date" Mode="In" />
+    <Parameter Name="PublicationUrl" Type="varchar" Mode="In" />
+    <Parameter Name="Authors" Type="nvarchar(max)" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesAuthorsByArticle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_MagazinesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="URL" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_PresentationsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PresentationsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="EventDate" Type="date" Mode="In" />
+    <Parameter Name="Place" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Event" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_PresentationsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_PresentationsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="EventDate" Type="date" Mode="In" />
+    <Parameter Name="Place" Type="varchar" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Event" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_RegulationsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegulationsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Content" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_RegulationsInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Consecutive" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Content" Type="varchar" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_RegulationsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_RegulationsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Content" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_ResearchProjectDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ResearchProjectInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="ProjectCode" Type="int" Mode="In" />
+    <Parameter Name="ProjectName" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectStartYear" Type="int" Mode="In" />
+    <Parameter Name="ProjectEndYear" Type="int" Mode="In" />
+    <Parameter Name="IsValited" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_ResearchProjectSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_ResearchProjectUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="ProjectCode" Type="int" Mode="In" />
+    <Parameter Name="ProjectName" Type="varchar" Mode="In" />
+    <Parameter Name="ProjectStartYear" Type="int" Mode="In" />
+    <Parameter Name="ProjectEndYear" Type="int" Mode="In" />
+    <Parameter Name="IsValited" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_TipsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TipsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Content" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_TipsInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Consecutive" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Content" Type="varchar" Mode="In" />
+    <Parameter Name="Created" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="usp_TipsSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TipsUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="Content" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingEntitiesDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingEntitiesExists" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingEntitiesGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="usp_TrainingEntitiesInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingEntitiesSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingEntitiesUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="TrainingStarDate" Type="date" Mode="In" />
+    <Parameter Name="TrainingEndDate" Type="date" Mode="In" />
+    <Parameter Name="TrainingHours" Type="int" Mode="In" />
+    <Parameter Name="TrainingEntity" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="usp_TrainingUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Id" Type="int" Mode="In" />
+    <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
+    <Parameter Name="Name" Type="varchar" Mode="In" />
+    <Parameter Name="TrainingStarDate" Type="date" Mode="In" />
+    <Parameter Name="TrainingEndDate" Type="date" Mode="In" />
+    <Parameter Name="TrainingHours" Type="int" Mode="In" />
+    <Parameter Name="TrainingEntity" Type="varchar" Mode="In" />
+  </Function>
+  <EntityContainer Name="ProntuarioDigitalModelStoreContainer">
+    <EntitySet Name="Authors" EntityType="Self.Authors" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuthorXBook" EntityType="Self.AuthorXBook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Books" EntityType="Self.Books" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CertifyingBody" EntityType="Self.CertifyingBody" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CollegeDegreeDocuments" EntityType="Self.CollegeDegreeDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="CollegeDegreeTypes" EntityType="Self.CollegeDegreeTypes" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Countries" EntityType="Self.Countries" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Editorial" EntityType="Self.Editorial" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Files" EntityType="Self.Files" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="GenericDocument" EntityType="Self.GenericDocument" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Institutions" EntityType="Self.Institutions" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LanguageKnowledgeDocuments" EntityType="Self.LanguageKnowledgeDocuments" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="LanguageKnowledgeLevels" EntityType="Self.LanguageKnowledgeLevels" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Languages" EntityType="Self.Languages" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Magazines" EntityType="Self.Magazines" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="MagazinesArticles" EntityType="Self.MagazinesArticles" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Presentations" EntityType="Self.Presentations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Regulations" EntityType="Self.Regulations" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ResearchProject" EntityType="Self.ResearchProject" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Tips" EntityType="Self.Tips" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Training" EntityType="Self.Training" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="TrainingEntities" EntityType="Self.TrainingEntities" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="AuthorXArticle" EntityType="Self.AuthorXArticle" store:Type="Tables" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [AuthorXArticle].[Id] AS [Id], 
+    [AuthorXArticle].[AuthorId] AS [AuthorId], 
+    [AuthorXArticle].[ArticleId] AS [ArticleId], 
+    [AuthorXArticle].[IsDeleted] AS [IsDeleted]
+    FROM [dbo].[AuthorXArticle] AS [AuthorXArticle]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="AuthorXArticle_Authors_Id_fk" Association="Self.AuthorXArticle_Authors_Id_fk">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="AuthorXArticle" EntitySet="AuthorXArticle" />
+    </AssociationSet>
+    <AssociationSet Name="AuthorXArticle_MagazinesArticles_Id_fk" Association="Self.AuthorXArticle_MagazinesArticles_Id_fk">
+      <End Role="MagazinesArticles" EntitySet="MagazinesArticles" />
+      <End Role="AuthorXArticle" EntitySet="AuthorXArticle" />
+    </AssociationSet>
+    <AssociationSet Name="AuthorXBook_Authors_Id_fk" Association="Self.AuthorXBook_Authors_Id_fk">
+      <End Role="Authors" EntitySet="Authors" />
+      <End Role="AuthorXBook" EntitySet="AuthorXBook" />
+    </AssociationSet>
+    <AssociationSet Name="AuthorXBook_Books_Id_fk" Association="Self.AuthorXBook_Books_Id_fk">
+      <End Role="Books" EntitySet="Books" />
+      <End Role="AuthorXBook" EntitySet="AuthorXBook" />
+    </AssociationSet>
+    <AssociationSet Name="Books_Editorial_Id_fk" Association="Self.Books_Editorial_Id_fk">
+      <End Role="Editorial" EntitySet="Editorial" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="Books_GenericDocument_Id_fk" Association="Self.Books_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="Books" EntitySet="Books" />
+    </AssociationSet>
+    <AssociationSet Name="CollegeDegreeDocuments_CollegeDegreeTypes_Id_fk" Association="Self.CollegeDegreeDocuments_CollegeDegreeTypes_Id_fk">
+      <End Role="CollegeDegreeTypes" EntitySet="CollegeDegreeTypes" />
+      <End Role="CollegeDegreeDocuments" EntitySet="CollegeDegreeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="CollegeDegreeDocuments_Countries_Id_fk" Association="Self.CollegeDegreeDocuments_Countries_Id_fk">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="CollegeDegreeDocuments" EntitySet="CollegeDegreeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="CollegeDegreeDocuments_GenericDocument_Id_fk" Association="Self.CollegeDegreeDocuments_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="CollegeDegreeDocuments" EntitySet="CollegeDegreeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="CollegeDegreeDocuments_Institutions_Id_fk" Association="Self.CollegeDegreeDocuments_Institutions_Id_fk">
+      <End Role="Institutions" EntitySet="Institutions" />
+      <End Role="CollegeDegreeDocuments" EntitySet="CollegeDegreeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="Country___fk" Association="Self.Country___fk">
+      <End Role="Countries" EntitySet="Countries" />
+      <End Role="Editorial" EntitySet="Editorial" />
+    </AssociationSet>
+    <AssociationSet Name="Files_GenericDocument_Id_fk" Association="Self.Files_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="Files" EntitySet="Files" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GenericDocument_Regulations" Association="Self.FK_GenericDocument_Regulations">
+      <End Role="Regulations" EntitySet="Regulations" />
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GenericDocument_Tips" Association="Self.FK_GenericDocument_Tips">
+      <End Role="Tips" EntitySet="Tips" />
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+    </AssociationSet>
+    <AssociationSet Name="FK_LanguageKnowledgeLevels_Languages" Association="Self.FK_LanguageKnowledgeLevels_Languages">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="LanguageKnowledgeLevels" EntitySet="LanguageKnowledgeLevels" />
+    </AssociationSet>
+    <AssociationSet Name="LanguageKnowledgeDocuments_CertifyingBody_Id_fk" Association="Self.LanguageKnowledgeDocuments_CertifyingBody_Id_fk">
+      <End Role="CertifyingBody" EntitySet="CertifyingBody" />
+      <End Role="LanguageKnowledgeDocuments" EntitySet="LanguageKnowledgeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="LanguageKnowledgeDocuments_GenericDocument_Id_fk" Association="Self.LanguageKnowledgeDocuments_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="LanguageKnowledgeDocuments" EntitySet="LanguageKnowledgeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="LanguageKnowledgeDocuments_Languages_Id_fk" Association="Self.LanguageKnowledgeDocuments_Languages_Id_fk">
+      <End Role="Languages" EntitySet="Languages" />
+      <End Role="LanguageKnowledgeDocuments" EntitySet="LanguageKnowledgeDocuments" />
+    </AssociationSet>
+    <AssociationSet Name="MagazinesArticles_GenericDocument_Id_fk" Association="Self.MagazinesArticles_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="MagazinesArticles" EntitySet="MagazinesArticles" />
+    </AssociationSet>
+    <AssociationSet Name="MagazinesArticles_Magazines_Id_fk" Association="Self.MagazinesArticles_Magazines_Id_fk">
+      <End Role="Magazines" EntitySet="Magazines" />
+      <End Role="MagazinesArticles" EntitySet="MagazinesArticles" />
+    </AssociationSet>
+    <AssociationSet Name="Presentations_GenericDocument_Id_fk" Association="Self.Presentations_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="Presentations" EntitySet="Presentations" />
+    </AssociationSet>
+    <AssociationSet Name="ResearchProject_GenericDocument_Id_fk" Association="Self.ResearchProject_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="ResearchProject" EntitySet="ResearchProject" />
+    </AssociationSet>
+    <AssociationSet Name="Training_GenericDocument_Id_fk" Association="Self.Training_GenericDocument_Id_fk">
+      <End Role="GenericDocument" EntitySet="GenericDocument" />
+      <End Role="Training" EntitySet="Training" />
+    </AssociationSet>
+    <AssociationSet Name="Training_TrainingEntities_Id_fk" Association="Self.Training_TrainingEntities_Id_fk">
+      <End Role="TrainingEntities" EntitySet="TrainingEntities" />
+      <End Role="Training" EntitySet="Training" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>
