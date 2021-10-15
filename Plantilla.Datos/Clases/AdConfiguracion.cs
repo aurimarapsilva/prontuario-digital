@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Data.Entity.Core.Objects;
 using System.Linq;
 using System.Reflection;
+
 namespace Plantilla.Datos.Clases
 
 {
@@ -117,7 +118,7 @@ namespace Plantilla.Datos.Clases
     }
 
 
-    public class Countries1
+    public class Countries
     {
         #region 
         /// <summary>
