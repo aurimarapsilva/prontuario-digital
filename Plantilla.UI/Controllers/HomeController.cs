@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Mvc;
 using System.Web.WebPages;
+using Newtonsoft.Json.Linq;
 
 namespace Plantilla.UI.Controllers
 {
@@ -75,6 +76,53 @@ namespace Plantilla.UI.Controllers
         public ActionResult ResearchProjects()
         {
             return View();
+        }
+        public JsonResult getCollegeDegreeDocumentList()
+        {
+            try
+            {
+                /*int idPersona = int.Parse(Session["sesionIdPersona"].ToString()); //En caso de no ser admin se usa
+                string nombreCompletoSolicitante = Session["NombreCompletoUsuario"].ToString();
+
+                //aplica validaciones si las hay
+
+                if (idConfiguracion.IsEmpty())
+                {
+                    respuesta.CodigoRespuesta = Constantes.Respuesta.CODIGOERROR;
+                    respuesta.Estado = false;
+                    respuesta.MensajeRespuesta = Utilitarios.Mensajes.Mensajes.Plantilla_Parametros_invalidos;
+                    return Json(new { respuesta }, JsonRequestBehavior.AllowGet);
+                }*/
+
+                //definición de variables que serán enviadas al método
+                //int idConfig = Int32.Parse(idConfiguracion);
+
+
+
+
+                //Acceso a servicios
+                //respuesta = ServiciosSeguridad.ObtenerConfiguracion(idConfig);
+                string jsonStr = @"{
+                    'Result':[
+                        {'Id': 1, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
+                        {'Id': 2, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
+                        {'Id': 3, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
+                        {'Id': 4, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
+                        {'Id': 5, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'}
+                    ]
+                }";
+
+                dynamic data = JObject.Parse(jsonStr);
+
+                //return Json(new { data }, JsonRequestBehavior.AllowGet);
+                return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch
+            {
+                return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
         }
     }
 }

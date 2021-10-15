@@ -251,6 +251,7 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Controllers\CollegeDegreeDocuments.js" />
     <Content Include="Scripts\Controllers\Sidebar_v1.js" />
     <Content Include="Scripts\Controllers\Dashboard_v131.js" />
     <Content Include="Scripts\Controllers\Home_v132.js" />
