@@ -52,89 +52,32 @@ namespace Plantilla.UI.Controllers
             //{
             //    return RedirectToAction("Index", "Login");
             //}
-            //Datos.Clases.CountriesD cd = new Datos.Clases.CountriesD();
-
-            //List<usp_CountriesGet_Result> res = cd.ConsultarCountries();
-
-            /*foreach (usp_CountriesGet_Result country in res)
-            {
-                Console.Write($"{country.Name} ");
-                Console.Write("Hola mundo");
-            }
-            return View();*/
             return View();
         }
 
         public ActionResult CollegeDegreeDocuments()
         {
-            return View();
+            return RedirectToAction("Index", "CollegeDegreeDocuments");
         }
         public ActionResult MagazineArticles()
         {
-            return View();
+            return RedirectToAction("Index", "MagazineArticles");
         }
         public ActionResult Presentations()
         {
-            return View();
+            return RedirectToAction("Index", "Presentations");
         }
         public ActionResult LanguageKnowledgeDocuments()
         {
-            return View();
+            return RedirectToAction("Index", "LanguageKnowledgeDocuments");
         }
         public ActionResult Training()
         {
-            return View();
+            return RedirectToAction("Index", "Training");
         }
         public ActionResult ResearchProjects()
         {
-            return View();
-        }
-        public JsonResult getCollegeDegreeDocumentList()
-        {
-            try
-            {
-                /*int idPersona = int.Parse(Session["sesionIdPersona"].ToString()); //En caso de no ser admin se usa
-                string nombreCompletoSolicitante = Session["NombreCompletoUsuario"].ToString();
-
-                //aplica validaciones si las hay
-
-                if (idConfiguracion.IsEmpty())
-                {
-                    respuesta.CodigoRespuesta = Constantes.Respuesta.CODIGOERROR;
-                    respuesta.Estado = false;
-                    respuesta.MensajeRespuesta = Utilitarios.Mensajes.Mensajes.Plantilla_Parametros_invalidos;
-                    return Json(new { respuesta }, JsonRequestBehavior.AllowGet);
-                }*/
-
-                //definición de variables que serán enviadas al método
-                //int idConfig = Int32.Parse(idConfiguracion);
-
-
-
-
-                //Acceso a servicios
-                //respuesta = ServiciosSeguridad.ObtenerConfiguracion(idConfig);
-                string jsonStr = @"{
-                    'Result':[
-                        {'Id': 1, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 2, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 3, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 4, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 5, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'}
-                    ]
-                }";
-
-                dynamic data = JObject.Parse(jsonStr);
-
-                //return Json(new { data }, JsonRequestBehavior.AllowGet);
-                return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-
-            }
-            catch
-            {
-                return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-            }
-
+            return RedirectToAction("Index", "ResearchProjects");
         }
     }
 }

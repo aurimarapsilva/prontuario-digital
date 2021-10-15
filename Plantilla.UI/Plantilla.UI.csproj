@@ -182,6 +182,12 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\ResearchProjectsController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
+    <Compile Include="Controllers\LanguageKnowledgeDocumentsController.cs" />
+    <Compile Include="Controllers\PresentationsController.cs" />
+    <Compile Include="Controllers\MagazineArticlesController.cs" />
+    <Compile Include="Controllers\CollegeDegreeDocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OldHomeController.cs" />
     <Compile Include="Controllers\LoginController.cs" />
@@ -311,12 +317,12 @@
     <Content Include="Views\OldHome\dashboard_consulta_usuario.cshtml" />
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\Sidebar.cshtml" />
-    <Content Include="Views\Home\CollegeDegreeDocuments.cshtml" />
-    <Content Include="Views\Home\MagazineArticles.cshtml" />
-    <Content Include="Views\Home\Presentations.cshtml" />
-    <Content Include="Views\Home\LanguageKnowledgeDocuments.cshtml" />
-    <Content Include="Views\Home\Training.cshtml" />
-    <Content Include="Views\Home\ResearchProjects.cshtml" />
+    <Content Include="Views\CollegeDegreeDocuments\Index.cshtml" />
+    <Content Include="Views\MagazineArticles\Index.cshtml" />
+    <Content Include="Views\Presentations\Index.cshtml" />
+    <Content Include="Views\LanguageKnowledgeDocuments\Index.cshtml" />
+    <Content Include="Views\Training\Index.cshtml" />
+    <Content Include="Views\ResearchProjects\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

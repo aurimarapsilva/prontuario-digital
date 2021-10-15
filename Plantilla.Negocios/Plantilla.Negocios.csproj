@@ -54,7 +54,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Clases\CountriesN.cs" />
     <Compile Include="Clases\LnConfiguracion.cs" />
     <Compile Include="ProntuarioDigital.Designer.cs">
       <AutoGen>True</AutoGen>
