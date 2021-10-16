@@ -11,14 +11,15 @@ namespace Plantilla.Datos.Clases
 {
     public class CountriesD
     {
-        public List<usp_CountriesGet_Result> ConsultarCountries()
+        public Tuple<List<usp_CountriesGet_Result>, int, string> ConsultarCountries()
         {
             try
             {
                 ProntuarioDigitalEntities db = new ProntuarioDigitalEntities();
              
                 List<usp_CountriesGet_Result> qConsulta = db.usp_CountriesGet().ToList();
-                return qConsulta;
+                var tResultado = new Tuple<List<usp_CountriesGet_Result>, int, string>(qConsulta, 1, "Exito");
+                return tResultado;
             }
             catch (Exception ex)
             {

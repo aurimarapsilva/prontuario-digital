@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Clases\Configuracion.cs" />
+    <Compile Include="Clases\oCountries.cs" />
     <Compile Include="Clases\oCredenciales.cs" />
     <Compile Include="Clases\oRespuesta.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

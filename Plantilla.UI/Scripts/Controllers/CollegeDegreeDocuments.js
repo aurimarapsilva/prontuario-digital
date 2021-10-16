@@ -21,8 +21,7 @@ $(document).ready(function () {
     //Consultar();
 
     getCollegeDegreeDocuments();
-
-
+    getCountries();
 });
 
 // Get college degree documents
@@ -33,10 +32,9 @@ function getCollegeDegreeDocuments() {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'Home/getCollegeDegreeDocumentList',
+        url: rootDirImage + 'CollegeDegreeDocuments/getCollegeDegreeDocumentList',
         data: {},
         success: function (data) {
-            console.log(data);
 /*            for (var i = 0; i < data.data[0][0][0].length; i++) {
                 var obj = data.data[0][0][0][i];
                 console.log(obj);
@@ -63,57 +61,24 @@ function getCollegeDegreeDocuments() {
     });
 }
 
-function Consultar() {
-
-    var idConfiguracion = "1";
-
-    $("#tablaResultadosBusqueda > tbody").empty();
+function getCountries() {
     $.LoadingOverlay("show");
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'Home/Consultar',
-        data: { 'idConfiguracion': idConfiguracion},
+        url: rootDirImage + 'CollegeDegreeDocuments/getCountries',
+        data: {},
         success: function (data) {
-            if (data == CODIGO_SESSION_EXPIRA) {
-                location.href = $("#dirAppIniLogin").val();
-            }
-            else if (data == CODIGO_SESSION_EXPIRA) {
-                $('#popFallo').modal('show');
-                $('#popFallo .popMensaje').html(MensajesDatosNulos);
-            }
-            else if (data == null) {
-                $('#popFallo').modal('show');
-                $('#popFallo .popMensaje').html(ErrorGeneral);
-            }
-            else if (data.respuesta.CodigoRespuesta != CODIGO_EXITO) {
+            console.log(data);
+                for (var i = 0; i < data.Item1.length; i++) {
+                    var obj = data.Item1[i];
 
-                if (data.respuesta.MensajeRespuesta.length <= 0) {
-                    $('#popFallo').modal('show');
-                    $('#popFallo .popMensaje').html(ErrorGeneral);
-                }
-                else {
-                    $('#popFallo').modal('show');
-                    $('#popFallo .popMensaje').html(data.respuesta.MensajeRespuesta);
-                }
-            }
-            else {
-
-                for (var i = 0; i < data.respuesta.ObjetoRespuesta.length; i++) {
-                    var obj = data.respuesta.ObjetoRespuesta[i];
-
-                    var row =
-                        "<tr>" +
-                        "<td class='oculto tiId'>" + obj.Idconfiguracion + "</td>" +
-                        "<td class='tiTipoConfig'>" + obj.TipoConfiguracion + "</td>" +
-                        "<td class='tiNombre'>" + obj.Nombre + "</td>" +
-                        "<td class='tiValor'>" + obj.Valor + "</td>" +
-                        "</tr>";
-                    $("#listado").find("table tbody").append(row);
+                    $('#degreeCountries')
+                        .append(`<option value="${obj.Id}">
+                                   ${obj.Name}
+                                 </option>`);
 
                 }
-
-            }
             $.LoadingOverlay("hide");
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -123,65 +88,3 @@ function Consultar() {
         }
     });
 }
-
-
-
-
-//---------------------------CONSULTAR UN FUNCIONARIO-------------------------------------------//
-$("#btnAdminBuscarFuncionario").click(function () {
-    var usuarioTec = $('#txtUsuarioTecConsulta').val();
-
-    if (usuarioTec.length <= 0) {
-        $("#tablaResultadosBusquedaAdminConsulta > tbody").empty();
-        return false;
-    }
-
-    if (usuarioTec.length <= 3 && usuarioTec.length > 0) {
-        $('#popFallo').modal('show');
-        $('#popFallo .popMensaje').html('Debes indicar mínimo 4 caracteres para poder buscar.');
-        return false;
-    }
-
-    $("#tablaResultadosBusquedaAdminConsulta > tbody").empty();
-    $.LoadingOverlay("show");
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: rootDirImage + 'Home/ListaUsuarios',
-        data: { "correoElectronico": usuarioTec },
-        success: function (data) {
-            if (data == CODIGO_SESSION_EXPIRA) {
-                location.href = $("#dirAppIniLogin").val();
-            }
-            else if (data == CODIGO_SESSION_EXPIRA) {
-                $('#popFallo').modal('show');
-                $('#popFallo .popMensaje').html(MensajesDatosNulos);
-            }
-            else if (data.CodigoRespuesta != CODIGO_EXITO) {
-                $('#popFallo').modal('show');
-                $('#popFallo .popMensaje').html(ErrorGeneral);
-            }
-
-            for (var i = 0; i < data.listado.length; i++) {
-                var obj = data.listado[i];
-                var rowUsuarios =
-                    "<tr>" +
-                    "<td class='oculto tiCodUsuario'>" + obj.IdUsuario + "</td>" +
-                    "<td class='tiNombre'>" + obj.Nombre + "</td>" +
-                    "<td class='tiApellidos'>" + obj.Apellido1 + " " + obj.Apellido2 + "</td>" +
-                    "<td class='tiCorreo'>" + obj.CorreoPrincipal + "</td>" +
-                    "<td><input type='radio' class='chkUsarUsuarioImpersonal form-check-input' title='Escoger Usuario' name='usugen' id='chkUsarUsuarioImpersonal'/></td>" + " " +
-                    "</tr>";
-                $("#ListadoBusquedaAdminConsulta").find("table tbody").append(rowUsuarios);
-            }
-            $.LoadingOverlay("hide");
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#popFallo').modal('show');
-            $('#popFallo .popMensaje').html(ErrorGeneral);
-            $.LoadingOverlay("hide");
-        }
-    });
-});
-
-
