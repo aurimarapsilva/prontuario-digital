@@ -52,16 +52,15 @@ namespace Plantilla.UI.Controllers
             //{
             //    return RedirectToAction("Index", "Login");
             //}
-            //Datos.Clases.CountriesD cd = new Datos.Clases.CountriesD();
+            Datos.Clases.CountriesD cd = new Datos.Clases.CountriesD();
 
-            //List<usp_CountriesGet_Result> res = cd.ConsultarCountries();
+            List<usp_CountriesGet_Result> res = cd.ConsultarCountries();
 
-            /*foreach (usp_CountriesGet_Result country in res)
+            foreach (usp_CountriesGet_Result country in res)
             {
                 Console.Write($"{country.Name} ");
                 Console.Write("Hola mundo");
             }
-            return View();*/
             return View();
         }
 
