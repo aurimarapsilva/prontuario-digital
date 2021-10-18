@@ -22,7 +22,44 @@ $(document).ready(function () {
 
     getCollegeDegreeDocuments();
     getCountries();
+
+    $('#addCollegeDegreeDocumentBtn').on("click", function (e) {
+        insertCollegeDegreeDocument();
+        return false;
+    });
 });
+
+
+function insertCollegeDegreeDocument() {
+    //string pCollegeDegreeType, int pYear, string pInstitution, string pCountry
+    $.LoadingOverlay("show");
+    var collegeDegreeType = $('#typeOfDegree').val();
+    var year = $('#year').val();
+    var institution = $('#institution').val();
+    var country = $('#degreeCountries').val();
+
+    $.ajax({
+        type: 'POST',
+        dataType: 'json',
+        url: rootDirImage + 'CollegeDegreeDocuments/insertCollegeDegreeDocument',
+        data: {
+            'pCollegeDegreeType': collegeDegreeType,
+            'pYear': year,
+            'pInstitution': institution,
+            'pCountry': country
+        },
+        success: function (data) {
+            $('#addDegreeModal').modal("hide");
+            $.LoadingOverlay("hide");
+            location.reload();
+        },
+        error: function (XMLHttpRequest, textStatus, errorThrown) {
+            $('#popFallo').modal('show');
+            $('#popFallo .popMensaje').html(ErrorGeneral);
+            $.LoadingOverlay("hide");
+        }
+    });
+}
 
 // Get college degree documents
 function getCollegeDegreeDocuments() {
@@ -35,22 +72,22 @@ function getCollegeDegreeDocuments() {
         url: rootDirImage + 'CollegeDegreeDocuments/getCollegeDegreeDocumentList',
         data: {},
         success: function (data) {
-/*            for (var i = 0; i < data.data[0][0][0].length; i++) {
-                var obj = data.data[0][0][0][i];
-                console.log(obj);
+            for (var i = 0; i < data.Item1.length; i++) {
+                var obj = data.Item1[i];
 
-                 var row = "<tr>" + 
-                            "<td>Mark</td>" +
-                            "<td>Otto</td>" +
-                            "<td>mdo</td>" +
-                            "<td>Mark</td>" +
-                            "<td>Otto</td>" +
+                var row = "<tr>" + 
+                            `<td>${obj.Description}</td>` +
+                            `<td>${obj.Name}</td>` +
+                            `<td>${obj.Year}</td>` +
+                            `<td>${obj.Institution}</td>` +
+                            `<td>${obj.Country}</td>` +
+                            `<td><button type="button" class="btn btn-primary" style="margin-top:0px; margin-bottom:0px;";>Ver archivos</button></td>`
                         "</tr>";
 
                 $("#collegeDegreeDocumentsTable").find("table tbody").append(row);
 
             }
-*/            $.LoadingOverlay("hide");
+            $.LoadingOverlay("hide");
 
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -69,7 +106,6 @@ function getCountries() {
         url: rootDirImage + 'CollegeDegreeDocuments/getCountries',
         data: {},
         success: function (data) {
-            console.log(data);
                 for (var i = 0; i < data.Item1.length; i++) {
                     var obj = data.Item1[i];
 

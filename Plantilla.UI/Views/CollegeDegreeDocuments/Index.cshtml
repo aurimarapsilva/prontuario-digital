@@ -14,7 +14,7 @@
             </div>
             <div class="col-md-6">
                 <div class="btn-group-style text-right" role="group" aria-label="Button group">
-                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">Agregar</button>
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addDegreeModal">Agregar</button>
                     <button type="button" class="btn btn-primary">Modifcar</button>
                     <button type="button" class="btn btn-primary">Eliminar</button>
                     <button type="button" class="btn btn-primary">Salir</button>
@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="collegeDegreeDocumentsTable">
                 <table class="table">
                     <thead>
                         <tr>
@@ -45,7 +45,7 @@
 <!-- Trigger the modal with a button -->
 
 <!-- Modal -->
-<div id="myModal" class="modal fade" role="dialog">
+<div id="addDegreeModal" class="modal fade" role="dialog">
   <div class="modal-dialog">
 
     <!-- Modal content-->
@@ -79,13 +79,13 @@
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">1.4 Año</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="number" class="form-control" id="year" placeholder="">
                     </div>
                 </div>
                 <div class="col-md-6">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">1.5 Nombre de la universidad</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="text" class="form-control" id="institution" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">1.6 País</label>
@@ -98,7 +98,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary" style="margin: auto;">Agregar</button>
+        <button id="addCollegeDegreeDocumentBtn"type="submit" class="btn btn-primary" style="margin: auto;">Agregar</button>
       </div>
     </div>
   </div>

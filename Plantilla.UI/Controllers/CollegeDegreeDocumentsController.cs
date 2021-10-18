@@ -86,41 +86,11 @@ namespace Plantilla.UI.Controllers
         {
             try
             {
-                /*int idPersona = int.Parse(Session["sesionIdPersona"].ToString()); //En caso de no ser admin se usa
-                string nombreCompletoSolicitante = Session["NombreCompletoUsuario"].ToString();
+                Datos.Clases.CollegeDegreeDocumentsD cd = new Datos.Clases.CollegeDegreeDocumentsD();
 
-                //aplica validaciones si las hay
+                var response = cd.getCollegeDegreeDocumentList();
 
-                if (idConfiguracion.IsEmpty())
-                {
-                    respuesta.CodigoRespuesta = Constantes.Respuesta.CODIGOERROR;
-                    respuesta.Estado = false;
-                    respuesta.MensajeRespuesta = Utilitarios.Mensajes.Mensajes.Plantilla_Parametros_invalidos;
-                    return Json(new { respuesta }, JsonRequestBehavior.AllowGet);
-                }*/
-
-                //definición de variables que serán enviadas al método
-                //int idConfig = Int32.Parse(idConfiguracion);
-
-
-
-
-                //Acceso a servicios
-                //respuesta = ServiciosSeguridad.ObtenerConfiguracion(idConfig);
-                string jsonStr = @"{
-                    'Result':[
-                        {'Id': 1, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 2, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 3, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 4, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 5, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'}
-                    ]
-                }";
-
-                dynamic data = JObject.Parse(jsonStr);
-
-                //return Json(new { data }, JsonRequestBehavior.AllowGet);
-                return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = response , JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             }
             catch
@@ -129,6 +99,25 @@ namespace Plantilla.UI.Controllers
             }
 
         }
+        public JsonResult insertCollegeDegreeDocument(string pCollegeDegreeType, int pYear, string pInstitution, string pCountry)
+        {
+            int genericDocumentId = 1;
+            try
+            {
+                Datos.Clases.CollegeDegreeDocumentsD cd = new Datos.Clases.CollegeDegreeDocumentsD();
+
+                var response = cd.insertCollegeDegreeDocument(genericDocumentId, pCollegeDegreeType, pYear, pInstitution, pCountry);
+
+                return new JsonResult { Data = response , JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch
+            {
+                return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
         public ActionResult CollegeDegreeDocuments()
         {
             return RedirectToAction("Index", "CollegeDegreeDocuments");

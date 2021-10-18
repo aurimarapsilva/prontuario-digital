@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-      <Schema Namespace="ProntuarioDigitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="ProntuarioDigitalModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Authors">
           <Key>
             <PropertyRef Name="Id" />
@@ -14,8 +14,8 @@
           <Property Name="Email" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
         </EntityType>
-        <!--Errores durante la generación:
-advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'ProntuarioDigital.dbo.AuthorXArticle' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
         <EntityType Name="AuthorXArticle">
           <Key>
             <PropertyRef Name="Id" />
@@ -116,6 +116,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
           <Property Name="Consecutive" Type="int" Nullable="false" />
           <Property Name="RegulationId" Type="int" Nullable="false" />
           <Property Name="TipsId" Type="int" Nullable="false" />
+          <Property Name="Name" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="IsDeleted" Type="bit" Nullable="false" />
           <Property Name="Created" Type="datetime" Nullable="false" />
           <Property Name="Modified" Type="datetime" Nullable="false" />
@@ -639,9 +640,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
         <Function Name="usp_CollegeDegreeDocumentsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_CollegeDegreeDocumentsGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_CollegeDegreeDocumentsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
-          <Parameter Name="CollegeDegreeType" Type="int" Mode="In" />
+          <Parameter Name="CollegeDegreeType" Type="varchar" Mode="In" />
           <Parameter Name="Year" Type="int" Mode="In" />
           <Parameter Name="Institution" Type="varchar" Mode="In" />
           <Parameter Name="Country" Type="varchar" Mode="In" />
@@ -744,12 +746,14 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
         <Function Name="usp_GenericDocumentInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="RegulationId" Type="int" Mode="In" />
           <Parameter Name="TipsId" Type="int" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_GenericDocumentInsertUpdate" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Consecutive" Type="int" Mode="In" />
           <Parameter Name="RegulationId" Type="int" Mode="In" />
           <Parameter Name="TipsId" Type="int" Mode="In" />
           <Parameter Name="Created" Type="datetime" Mode="In" />
+          <Parameter Name="Name" Type="varchar" Mode="In" />
         </Function>
         <Function Name="usp_GenericDocumentSelect" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
@@ -885,6 +889,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
         <Function Name="usp_PresentationsDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_PresentationsGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_PresentationsInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
           <Parameter Name="EventDate" Type="date" Mode="In" />
@@ -927,6 +932,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
         <Function Name="usp_ResearchProjectDelete" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="Id" Type="int" Mode="In" />
         </Function>
+        <Function Name="usp_ResearchProjectGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_ResearchProjectInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
           <Parameter Name="ProjectCode" Type="int" Mode="In" />
@@ -990,6 +996,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
           <Parameter Name="Name" Type="varchar" Mode="In" />
           <Parameter Name="IsUserDefined" Type="bit" Mode="In" />
         </Function>
+        <Function Name="usp_TrainingGet" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
         <Function Name="usp_TrainingInsert" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
           <Parameter Name="GenericDocumentId" Type="int" Mode="In" />
           <Parameter Name="Name" Type="varchar" Mode="In" />
@@ -1138,8 +1145,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <End Role="Training" EntitySet="Training" />
           </AssociationSet>
         </EntityContainer>
-      </Schema>
-    </edmx:StorageModels>
+      </Schema></edmx:StorageModels>
     <!-- CSDL content -->
     <edmx:ConceptualModels>
       <Schema Namespace="ProntuarioDigitalModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
@@ -1271,6 +1277,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
           <NavigationProperty Name="Presentations" Relationship="Self.Presentations_GenericDocument_Id_fk" FromRole="GenericDocument" ToRole="Presentations" />
           <NavigationProperty Name="ResearchProject" Relationship="Self.ResearchProject_GenericDocument_Id_fk" FromRole="GenericDocument" ToRole="ResearchProject" />
           <NavigationProperty Name="Training" Relationship="Self.Training_GenericDocument_Id_fk" FromRole="GenericDocument" ToRole="Training" />
+          <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="Institutions">
           <Key>
@@ -1845,10 +1852,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <End Role="Training" EntitySet="Training" />
           </AssociationSet>
           <FunctionImport Name="usp_AuthorsByArticle" ReturnType="Collection(String)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorsExists">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -1859,7 +1866,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorsUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorsUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1867,14 +1874,14 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Email" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXArticleDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXArticleInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorXArticleInsert_Result)">
             <Parameter Name="AuthorId" Mode="In" Type="Int32" />
             <Parameter Name="ArticleId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXArticleSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorXArticleSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXArticleUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorXArticleUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1882,14 +1889,14 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="ArticleId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXBookDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXBookInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorXBookInsert_Result)">
             <Parameter Name="AuthorId" Mode="In" Type="Int32" />
             <Parameter Name="BookId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXBookSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorXBookSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_AuthorXBookUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_AuthorXBookUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1897,7 +1904,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="BookId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_BooksDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_BooksInsert">
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
@@ -1909,7 +1916,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Authors" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_BooksSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_BooksSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_BooksUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1922,10 +1929,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Authors" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CertifyingBodyDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CertifyingBodyExists">
-            <Parameter Name="Name" Mode="In" Type="String" />
+          <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CertifyingBodyGet" ReturnType="Collection(ProntuarioDigitalModel.usp_CertifyingBodyGet_Result)" />
           <FunctionImport Name="usp_CertifyingBodyInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_CertifyingBodyInsert_Result)">
@@ -1933,7 +1940,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_CertifyingBodySelect" ReturnType="Collection(ProntuarioDigitalModel.usp_CertifyingBodySelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CertifyingBodyUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_CertifyingBodyUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1941,17 +1948,17 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeDocumentsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeDocumentsInsert">
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
-            <Parameter Name="CollegeDegreeType" Mode="In" Type="Int32" />
+            <Parameter Name="CollegeDegreeType" Mode="In" Type="String" />
             <Parameter Name="Year" Mode="In" Type="Int32" />
             <Parameter Name="Institution" Mode="In" Type="String" />
             <Parameter Name="Country" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeDocumentsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_CollegeDegreeDocumentsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeDocumentsUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1962,10 +1969,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Country" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeTypesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeTypesExists">
-            <Parameter Name="Description" Mode="In" Type="String" />
+          <Parameter Name="Description" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeTypesGet" ReturnType="Collection(ProntuarioDigitalModel.usp_CollegeDegreeTypesGet_Result)" />
           <FunctionImport Name="usp_CollegeDegreeTypesInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_CollegeDegreeTypesInsert_Result)">
@@ -1973,7 +1980,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeTypesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_CollegeDegreeTypesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CollegeDegreeTypesUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_CollegeDegreeTypesUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -1981,24 +1988,24 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_CountriesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CountriesExists">
-            <Parameter Name="Name" Mode="In" Type="String" />
+          <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CountriesGet" ReturnType="Collection(ProntuarioDigitalModel.usp_CountriesGet_Result)" />
           <FunctionImport Name="usp_CountriesInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_CountriesInsert_Result)">
-            <Parameter Name="Name" Mode="In" Type="String" />
+          <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_CountriesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_CountriesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_CountriesUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_CountriesUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
             <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_EditorialDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_EditorialExists">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -2011,7 +2018,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="CountryId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_EditorialSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_EditorialSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_EditorialUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_EditorialUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2020,7 +2027,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="CountryId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_FilesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_FilesInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_FilesInsert_Result)">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -2034,7 +2041,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_FilesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_FilesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_FilesUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2043,20 +2050,22 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GenericDocumentDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GenericDocumentInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_GenericDocumentInsert_Result)">
             <Parameter Name="RegulationId" Mode="In" Type="Int32" />
             <Parameter Name="TipsId" Mode="In" Type="Int32" />
+            <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_GenericDocumentInsertUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_GenericDocumentInsertUpdate_Result)">
             <Parameter Name="Consecutive" Mode="In" Type="Int32" />
             <Parameter Name="RegulationId" Mode="In" Type="Int32" />
             <Parameter Name="TipsId" Mode="In" Type="Int32" />
             <Parameter Name="Created" Mode="In" Type="DateTime" />
+            <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_GenericDocumentSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_GenericDocumentSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_GenericDocumentUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2064,10 +2073,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="TipsId" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_InstitutionsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_InstitutionsExist">
-            <Parameter Name="Name" Mode="In" Type="String" />
+          <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_InstitutionsGet" ReturnType="Collection(ProntuarioDigitalModel.usp_InstitutionsGet_Result)" />
           <FunctionImport Name="usp_InstitutionsInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_InstitutionsInsert_Result)">
@@ -2075,7 +2084,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_InstitutionsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_InstitutionsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_InstitutionsUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_InstitutionsUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2083,7 +2092,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeDocumentsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeDocumentsInsert">
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
@@ -2093,7 +2102,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Levels" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeDocumentsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguageKnowledgeDocumentsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeDocumentsUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2104,7 +2113,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Levels" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeLevelsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeLevelsInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguageKnowledgeLevelsInsert_Result)">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -2113,7 +2122,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Score" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeLevelsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguageKnowledgeLevelsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguageKnowledgeLevelsUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguageKnowledgeLevelsUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2121,10 +2130,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguagesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguagesExists">
-            <Parameter Name="Name" Mode="In" Type="String" />
+          <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguagesGet" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguagesGet_Result)" />
           <FunctionImport Name="usp_LanguagesInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguagesInsert_Result)">
@@ -2132,7 +2141,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguagesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguagesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_LanguagesUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_LanguagesUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2144,7 +2153,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="URL" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesArticlesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesArticlesInsert">
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
@@ -2156,7 +2165,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Authors" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesArticlesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_MagazinesArticlesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesArticlesUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2169,17 +2178,17 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Authors" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesAuthorsByArticle" ReturnType="Collection(String)">
-            <Parameter Name="id" Mode="In" Type="Int32" />
+          <Parameter Name="id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_MagazinesInsert_Result)">
             <Parameter Name="Name" Mode="In" Type="String" />
             <Parameter Name="URL" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_MagazinesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_MagazinesUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_MagazinesUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2187,7 +2196,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="URL" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PresentationsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_PresentationsInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_PresentationsInsert_Result)">
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
@@ -2197,7 +2206,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Event" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_PresentationsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_PresentationsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_PresentationsUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_PresentationsUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2208,7 +2217,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Event" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_RegulationsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_RegulationsInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_RegulationsInsert_Result)">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -2221,7 +2230,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Created" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="usp_RegulationsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_RegulationsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_RegulationsUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2229,7 +2238,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Content" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_ResearchProjectDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ResearchProjectInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_ResearchProjectInsert_Result)">
             <Parameter Name="GenericDocumentId" Mode="In" Type="Int32" />
@@ -2240,7 +2249,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsValited" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_ResearchProjectSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_ResearchProjectSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_ResearchProjectUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_ResearchProjectUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2252,7 +2261,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsValited" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_TipsDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TipsInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_TipsInsert_Result)">
             <Parameter Name="Name" Mode="In" Type="String" />
@@ -2265,7 +2274,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Created" Mode="In" Type="DateTime" />
           </FunctionImport>
           <FunctionImport Name="usp_TipsSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_TipsSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TipsUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2273,13 +2282,13 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="Content" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingEntitiesDelete">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingEntitiesExists">
-            <Parameter Name="Name" Mode="In" Type="String" />
+          <Parameter Name="Name" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingEntitiesGet" ReturnType="Collection(ProntuarioDigitalModel.usp_TrainingEntitiesGet_Result)" />
           <FunctionImport Name="usp_TrainingEntitiesInsert" ReturnType="Collection(ProntuarioDigitalModel.usp_TrainingEntitiesInsert_Result)">
@@ -2287,7 +2296,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="IsUserDefined" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingEntitiesSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_TrainingEntitiesSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingEntitiesUpdate" ReturnType="Collection(ProntuarioDigitalModel.usp_TrainingEntitiesUpdate_Result)">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2303,7 +2312,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="TrainingEntity" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingSelect" ReturnType="Collection(ProntuarioDigitalModel.usp_TrainingSelect_Result)">
-            <Parameter Name="Id" Mode="In" Type="Int32" />
+          <Parameter Name="Id" Mode="In" Type="Int32" />
           </FunctionImport>
           <FunctionImport Name="usp_TrainingUpdate">
             <Parameter Name="Id" Mode="In" Type="Int32" />
@@ -2314,6 +2323,10 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             <Parameter Name="TrainingHours" Mode="In" Type="Int32" />
             <Parameter Name="TrainingEntity" Mode="In" Type="String" />
           </FunctionImport>
+          <FunctionImport Name="usp_CollegeDegreeDocumentsGet" ReturnType="Collection(ProntuarioDigitalModel.usp_CollegeDegreeDocumentsGet_Result)" />
+          <FunctionImport Name="usp_PresentationsGet" ReturnType="Collection(ProntuarioDigitalModel.usp_PresentationsGet_Result)" />
+          <FunctionImport Name="usp_ResearchProjectGet" ReturnType="Collection(ProntuarioDigitalModel.usp_ResearchProjectGet_Result)" />
+          <FunctionImport Name="usp_TrainingGet" ReturnType="Collection(ProntuarioDigitalModel.usp_TrainingGet_Result)" />
         </EntityContainer>
         <ComplexType Name="usp_AuthorsInsert_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -2775,6 +2788,36 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
           <Property Type="Int32" Name="TrainingEntityId" Nullable="false" />
           <Property Type="Boolean" Name="isDeleted" Nullable="false" />
         </ComplexType>
+        <ComplexType Name="usp_CollegeDegreeDocumentsGet_Result">
+          <Property Type="String" Name="Description" Nullable="false" MaxLength="250" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Year" Nullable="false" />
+          <Property Type="String" Name="Institution" Nullable="true" MaxLength="50" />
+          <Property Type="String" Name="Country" Nullable="false" MaxLength="50" />
+        </ComplexType>
+        <ComplexType Name="usp_PresentationsGet_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="Int32" Name="GenericDocumentId" Nullable="false" />
+          <Property Type="DateTime" Name="EventDate" Nullable="false" />
+          <Property Type="String" Name="Place" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="String" Name="Event" Nullable="false" MaxLength="50" />
+          <Property Type="Boolean" Name="IsDeleted" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_ResearchProjectGet_Result">
+          <Property Type="Int32" Name="ProjectCode" Nullable="false" />
+          <Property Type="String" Name="ProjectName" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="ProjectStartYear" Nullable="false" />
+          <Property Type="Int32" Name="ProjectEndYear" Nullable="false" />
+          <Property Type="Boolean" Name="IsValited" Nullable="false" />
+        </ComplexType>
+        <ComplexType Name="usp_TrainingGet_Result">
+          <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="TrainingHours" Nullable="false" />
+          <Property Type="DateTime" Name="TrainingStarDate" Nullable="false" />
+          <Property Type="DateTime" Name="TrainingEndDate" Nullable="false" />
+          <Property Type="String" Name="TrainingEntity" Nullable="false" MaxLength="50" />
+        </ComplexType>
       </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -2882,6 +2925,7 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
           <EntitySetMapping Name="GenericDocument">
             <EntityTypeMapping TypeName="ProntuarioDigitalModel.GenericDocument">
               <MappingFragment StoreEntitySet="GenericDocument">
+                <ScalarProperty Name="Name" ColumnName="Name" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="Consecutive" ColumnName="Consecutive" />
                 <ScalarProperty Name="RegulationId" ColumnName="RegulationId" />
@@ -3814,6 +3858,52 @@ advertencia 6002: La tabla o vista 'ProntuarioDigital.dbo.AuthorXArticle' no tie
             </ResultMapping>
           </FunctionImportMapping>
           <FunctionImportMapping FunctionImportName="usp_TrainingUpdate" FunctionName="ProntuarioDigitalModel.Store.usp_TrainingUpdate" />
+          <FunctionImportMapping FunctionImportName="usp_CollegeDegreeDocumentsGet" FunctionName="ProntuarioDigitalModel.Store.usp_CollegeDegreeDocumentsGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProntuarioDigitalModel.usp_CollegeDegreeDocumentsGet_Result">
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Year" ColumnName="Year" />
+                <ScalarProperty Name="Institution" ColumnName="Institution" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_PresentationsGet" FunctionName="ProntuarioDigitalModel.Store.usp_PresentationsGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProntuarioDigitalModel.usp_PresentationsGet_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="GenericDocumentId" ColumnName="GenericDocumentId" />
+                <ScalarProperty Name="EventDate" ColumnName="EventDate" />
+                <ScalarProperty Name="Place" ColumnName="Place" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="Event" ColumnName="Event" />
+                <ScalarProperty Name="IsDeleted" ColumnName="IsDeleted" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_ResearchProjectGet" FunctionName="ProntuarioDigitalModel.Store.usp_ResearchProjectGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProntuarioDigitalModel.usp_ResearchProjectGet_Result">
+                <ScalarProperty Name="ProjectCode" ColumnName="ProjectCode" />
+                <ScalarProperty Name="ProjectName" ColumnName="ProjectName" />
+                <ScalarProperty Name="ProjectStartYear" ColumnName="ProjectStartYear" />
+                <ScalarProperty Name="ProjectEndYear" ColumnName="ProjectEndYear" />
+                <ScalarProperty Name="IsValited" ColumnName="IsValited" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="usp_TrainingGet" FunctionName="ProntuarioDigitalModel.Store.usp_TrainingGet">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="ProntuarioDigitalModel.usp_TrainingGet_Result">
+                <ScalarProperty Name="Name" ColumnName="Name" />
+                <ScalarProperty Name="TrainingHours" ColumnName="TrainingHours" />
+                <ScalarProperty Name="TrainingStarDate" ColumnName="TrainingStarDate" />
+                <ScalarProperty Name="TrainingEndDate" ColumnName="TrainingEndDate" />
+                <ScalarProperty Name="TrainingEntity" ColumnName="TrainingEntity" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
         </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>

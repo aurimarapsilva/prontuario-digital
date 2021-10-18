@@ -73,6 +73,7 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\AdConfiguracion.cs" />
+    <Compile Include="Clases\CollegeDegreeDocumentsD.cs" />
     <Compile Include="Clases\CountriesD.cs" />
     <Compile Include="CollegeDegreeDocuments.cs">
       <DependentUpon>Model1.tt</DependentUpon>
@@ -186,6 +187,9 @@
     <Compile Include="usp_CertifyingBodyUpdate_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_CollegeDegreeDocumentsGet_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_CollegeDegreeDocumentsSelect_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -288,6 +292,9 @@
     <Compile Include="usp_MagazinesUpdate_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="usp_PresentationsGet_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="usp_PresentationsInsert_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
@@ -304,6 +311,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_RegulationsSelect_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_ResearchProjectGet_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_ResearchProjectInsert_Result.cs">
@@ -334,6 +344,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_TrainingEntitiesUpdate_Result.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
+    <Compile Include="usp_TrainingGet_Result.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="usp_TrainingSelect_Result.cs">
