@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using System.Web.WebPages;
 using Plantilla.Datos;
 using Newtonsoft.Json.Linq;
+using System.Globalization;
 
 namespace Plantilla.UI.Controllers
 {
@@ -65,45 +66,15 @@ namespace Plantilla.UI.Controllers
             return View();
         }
 
-        public JsonResult getCollegeDegreeDocumentList()
+        public JsonResult getPresentationsDocumentList()
         {
             try
             {
-                /*int idPersona = int.Parse(Session["sesionIdPersona"].ToString()); //En caso de no ser admin se usa
-                string nombreCompletoSolicitante = Session["NombreCompletoUsuario"].ToString();
+                Datos.Clases.PresentationD cd = new Datos.Clases.PresentationD();
 
-                //aplica validaciones si las hay
+                var response = cd.getPresentationsDocumentList();
 
-                if (idConfiguracion.IsEmpty())
-                {
-                    respuesta.CodigoRespuesta = Constantes.Respuesta.CODIGOERROR;
-                    respuesta.Estado = false;
-                    respuesta.MensajeRespuesta = Utilitarios.Mensajes.Mensajes.Plantilla_Parametros_invalidos;
-                    return Json(new { respuesta }, JsonRequestBehavior.AllowGet);
-                }*/
-
-                //definición de variables que serán enviadas al método
-                //int idConfig = Int32.Parse(idConfiguracion);
-
-
-
-
-                //Acceso a servicios
-                //respuesta = ServiciosSeguridad.ObtenerConfiguracion(idConfig);
-                string jsonStr = @"{
-                    'Result':[
-                        {'Id': 1, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 2, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 3, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 4, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'},
-                        {'Id': 5, 'Type': 'Física Molecular', 'Year': 2015, 'Institution': 'Universidad de Costa Rica', 'Country':'Costa Rica'}
-                    ]
-                }";
-
-                dynamic data = JObject.Parse(jsonStr);
-
-                //return Json(new { data }, JsonRequestBehavior.AllowGet);
-                return new JsonResult { Data = data, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+                return new JsonResult { Data = response , JsonRequestBehavior = JsonRequestBehavior.AllowGet };
 
             }
             catch
@@ -112,6 +83,30 @@ namespace Plantilla.UI.Controllers
             }
 
         }
+        public JsonResult insertPresentationDocument(string pEventDate, string pPlace, string pName, string pEvent)
+        {
+            int genericDocumentId = 1;
+            CultureInfo provider = CultureInfo.InvariantCulture;
+
+          string dateString = pEventDate;
+          string format = "yyyy-MM-dd";
+
+          try {
+                DateTime eventDate = DateTime.ParseExact(dateString, format, provider);
+                Datos.Clases.PresentationD cd = new Datos.Clases.PresentationD();
+
+                var response = cd.insertPresentationsDocument(genericDocumentId, eventDate, pPlace, pName, pEvent);
+
+                return new JsonResult { Data = response , JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+
+            }
+            catch
+            {
+                return new JsonResult { Data = null, JsonRequestBehavior = JsonRequestBehavior.AllowGet };
+            }
+
+        }
+
         public ActionResult CollegeDegreeDocuments()
         {
             return RedirectToAction("Index", "CollegeDegreeDocuments");
