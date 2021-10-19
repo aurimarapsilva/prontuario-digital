@@ -73,6 +73,9 @@
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
     <Compile Include="Clases\AdConfiguracion.cs" />
+    <Compile Include="Clases\ResearchDocumentsD.cs" />
+    <Compile Include="Clases\PresentationsD.cs" />
+    <Compile Include="Clases\TrainingD.cs" />
     <Compile Include="Clases\CollegeDegreeDocumentsD.cs" />
     <Compile Include="Clases\CountriesD.cs" />
     <Compile Include="CollegeDegreeDocuments.cs">

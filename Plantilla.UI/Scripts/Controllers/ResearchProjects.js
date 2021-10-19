@@ -20,32 +20,32 @@ $(document).ready(function () {
 
     //Consultar();
 
-    getPresentationDocuments();
+    getResearchProjects();
 
     $('#addCollegeDegreeDocumentBtn').on("click", function (e) {
-        insertPresentationDocument();
+        insertResearchProjectDocument();
         return false;
     });
 });
 
 
-function insertPresentationDocument() {
+function insertResearchProjectDocument() {
     //string pCollegeDegreeType, int pYear, string pInstitution, string pCountry
     $.LoadingOverlay("show");
-    var collegeDegreeType = $('#typeOfDegree').val();
-    var year = $('#year').val();
-    var institution = $('#institution').val();
-    var country = $('#degreeCountries').val();
+    var name = $('#name').val();
+    var code = $('#code').val();
+    var startYear = $('#startYear').val();
+    var endYear = $('#endYear').val();
 
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'CollegeDegreeDocuments/insertCollegeDegreeDocument',
+        url: rootDirImage + 'ResearchProjects/insertResearchProject',
         data: {
-            'pCollegeDegreeType': collegeDegreeType,
-            'pYear': year,
-            'pInstitution': institution,
-            'pCountry': country
+            'pProjectCode': code,
+            'pProjectname': name,
+            'pStartYear': startYear,
+            'pEndYear': endYear
         },
         success: function (data) {
             $('#addDegreeModal').modal("hide");
@@ -61,26 +61,26 @@ function insertPresentationDocument() {
 }
 
 // Get college degree documents
-function getPresentationDocuments() {
+function getResearchProjects() {
     $("#collegeDegreeDocumentsTable > tbody").empty();
     $.LoadingOverlay("show");
 
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'Presentations/getPresentationDocumentList',
+        url: rootDirImage + 'ResearchProjects/getResearchProjectList',
         data: {},
         success: function (data) {
             for (var i = 0; i < data.Item1.length; i++) {
                 var obj = data.Item1[i];
 
                 var row = "<tr>" + 
-                            `<td>${obj.Description}</td>` +
-                            `<td>${obj.Name}</td>` +
-                            `<td>${obj.Year}</td>` +
-                            `<td>${obj.Institution}</td>` +
-                            `<td>${obj.Country}</td>` +
-                            `<td><button type="button" class="btn btn-primary" style="margin-top:0px; margin-bottom:0px;";>Ver archivos</button></td>`
+                            `<td>${obj.ProjectName}</td>` +
+                            `<td>${obj.Code}</td>` +
+                            `<td>tipo</td>` +
+                            `<td>${obj.ProjectStartYear}</td>` +
+                            `<td>${obj.ProjectEndYear}</td>` +
+                            `<td>No</td>` +
                         "</tr>";
 
                 $("#collegeDegreeDocumentsTable").find("table tbody").append(row);

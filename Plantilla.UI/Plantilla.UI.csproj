@@ -182,10 +182,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Controllers\ResearchProjectsController.cs" />
-    <Compile Include="Controllers\TrainingController.cs" />
-    <Compile Include="Controllers\LanguageKnowledgeDocumentsController.cs" />
     <Compile Include="Controllers\PresentationsController.cs" />
+    <Compile Include="Controllers\TrainingController.cs" />
+    <Compile Include="Controllers\ResearchProjectsController.cs" />
+    <Compile Include="Controllers\LanguageKnowledgeDocumentsController.cs" />
     <Compile Include="Controllers\MagazineArticlesController.cs" />
     <Compile Include="Controllers\CollegeDegreeDocumentsController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -257,6 +257,9 @@
     <Content Include="Content\Site.css" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
+    <Content Include="Scripts\Controllers\TrainingDocuments.js" />
+    <Content Include="Scripts\Controllers\PresentationsDocuments.js" />
+    <Content Include="Scripts\Controllers\ResearchProjects.js" />
     <Content Include="Scripts\Controllers\CollegeDegreeDocuments.js" />
     <Content Include="Scripts\Controllers\Sidebar_v1.js" />
     <Content Include="Scripts\Controllers\Dashboard_v131.js" />

@@ -22,7 +22,7 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-md-12">
+            <div class="col-md-12" id="collegeDegreeDocumentsTable">
                 <table class="table">
                     <thead>
                         <tr>
@@ -60,19 +60,19 @@
                 <div class="col-md-12">
                     <div class="form-group">
                         <label for="exampleFormControlInput1">1.1 Nombre del proyecto inscrito en la VIE</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="text" class="form-control" id="name" placeholder="">
                     </div>
                     <div class="form-group">
-                        <label for="exampleFormControlInput1">1.2 Ciódigo del proyecto inscrito en la VIE</label>
-                        <input type="text" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <label for="exampleFormControlInput1">1.2 Código del proyecto inscrito en la VIE</label>
+                        <input type="text" class="form-control" id="code" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">1.3 Año de inicio</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="number" class="form-control" id="startYear" placeholder="">
                     </div>
                     <div class="form-group">
                         <label for="exampleFormControlInput1">1.3 Año fin</label>
-                        <input type="number" class="form-control" id="exampleFormControlInput1" placeholder="">
+                        <input type="number" class="form-control" id="endYear" placeholder="">
                     </div>
                 </div>
             </div>
@@ -80,10 +80,10 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-primary" data-dismiss="modal">Cancelar</button>
-        <button type="submit" class="btn btn-primary" style="margin: auto;">Agregar</button>
+        <button id="addCollegeDegreeDocumentBtn" type="submit" class="btn btn-primary" style="margin: auto;">Agregar</button>
       </div>
     </div>
   </div>
 </div>
 
-<script src="~/Scripts/Controllers/CollegeDegreeDocuments.js"></script>
+<script src="~/Scripts/Controllers/ResearchProjects.js"></script>
