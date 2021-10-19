@@ -20,16 +20,17 @@ $(document).ready(function () {
 
     //Consultar();
 
-    getPresentationDocuments();
+    getCollegeDegreeDocuments();
+    getCountries();
 
     $('#addCollegeDegreeDocumentBtn').on("click", function (e) {
-        insertPresentationDocument();
+        insertCollegeDegreeDocument();
         return false;
     });
 });
 
 
-function insertPresentationDocument() {
+function insertCollegeDegreeDocument() {
     //string pCollegeDegreeType, int pYear, string pInstitution, string pCountry
     $.LoadingOverlay("show");
     var collegeDegreeType = $('#typeOfDegree').val();
@@ -61,14 +62,14 @@ function insertPresentationDocument() {
 }
 
 // Get college degree documents
-function getPresentationDocuments() {
+function getCollegeDegreeDocuments() {
     $("#collegeDegreeDocumentsTable > tbody").empty();
     $.LoadingOverlay("show");
 
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'Presentations/getPresentationDocumentList',
+        url: rootDirImage + 'CollegeDegreeDocuments/getCollegeDegreeDocumentList',
         data: {},
         success: function (data) {
             for (var i = 0; i < data.Item1.length; i++) {

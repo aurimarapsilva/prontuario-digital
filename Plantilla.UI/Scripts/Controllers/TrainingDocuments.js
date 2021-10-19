@@ -29,7 +29,6 @@ $(document).ready(function () {
     });
 });
 
-
 function insertCollegeDegreeDocument() {
     //string pCollegeDegreeType, int pYear, string pInstitution, string pCountry
     $.LoadingOverlay("show");
@@ -69,18 +68,18 @@ function getCollegeDegreeDocuments() {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'CollegeDegreeDocuments/getCollegeDegreeDocumentList',
+        url: rootDirImage + 'Training/getTrainingDocumentList',
         data: {},
         success: function (data) {
             for (var i = 0; i < data.Item1.length; i++) {
                 var obj = data.Item1[i];
 
                 var row = "<tr>" + 
-                            `<td>${obj.Description}</td>` +
                             `<td>${obj.Name}</td>` +
-                            `<td>${obj.Year}</td>` +
-                            `<td>${obj.Institution}</td>` +
-                            `<td>${obj.Country}</td>` +
+                            `<td>0${i+1}/05/2015</td>` +
+                            `<td>0${i+1}/05/2015</td>` +
+                            `<td>${obj.TrainingHours}</td>` +
+                            `<td>${obj.TrainingEntity}</td>` +
                             `<td><button type="button" class="btn btn-primary" style="margin-top:0px; margin-bottom:0px;";>Ver archivos</button></td>`
                         "</tr>";
 
@@ -89,33 +88,6 @@ function getCollegeDegreeDocuments() {
             }
             $.LoadingOverlay("hide");
 
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $('#popFallo').modal('show');
-            $('#popFallo .popMensaje').html(ErrorGeneral);
-            $.LoadingOverlay("hide");
-        }
-    });
-}
-
-function getCountries() {
-    $.LoadingOverlay("show");
-    $.ajax({
-        type: 'POST',
-        dataType: 'json',
-        url: rootDirImage + 'CollegeDegreeDocuments/getCountries',
-        data: {},
-        success: function (data) {
-                for (var i = 0; i < data.Item1.length; i++) {
-                    var obj = data.Item1[i];
-
-                    $('#degreeCountries')
-                        .append(`<option value="${obj.Id}">
-                                   ${obj.Name}
-                                 </option>`);
-
-                }
-            $.LoadingOverlay("hide");
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             $('#popFallo').modal('show');

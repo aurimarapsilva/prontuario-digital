@@ -83,7 +83,7 @@ namespace Plantilla.UI.Controllers
             }
 
         }
-        public JsonResult insertCollegeDegreeDocument(string pName, string pStartDate, string pEndDate, int pHours, string pTrainingEntity)
+        public JsonResult insertTrainingDocument(string pName, string pStartDate, string pEndDate, int pHours, string pTrainingEntity)
         {
             int genericDocumentId = 1;
             CultureInfo provider = CultureInfo.InvariantCulture;
@@ -98,7 +98,6 @@ namespace Plantilla.UI.Controllers
                 var response = cd.insertTraningDocument(genericDocumentId, pName, startDate, endDate, pHours, pTrainingEntity);
 
                 return new JsonResult { Data = response , JsonRequestBehavior = JsonRequestBehavior.AllowGet };
-
             }
             catch
             {

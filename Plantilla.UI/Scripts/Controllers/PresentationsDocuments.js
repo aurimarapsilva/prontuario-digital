@@ -21,7 +21,6 @@ $(document).ready(function () {
     //Consultar();
 
     getCollegeDegreeDocuments();
-    getCountries();
 
     $('#addCollegeDegreeDocumentBtn').on("click", function (e) {
         insertCollegeDegreeDocument();
@@ -33,20 +32,19 @@ $(document).ready(function () {
 function insertCollegeDegreeDocument() {
     //string pCollegeDegreeType, int pYear, string pInstitution, string pCountry
     $.LoadingOverlay("show");
-    var collegeDegreeType = $('#typeOfDegree').val();
-    var year = $('#year').val();
-    var institution = $('#institution').val();
-    var country = $('#degreeCountries').val();
+    var name = $('#name').val();
+    var date = $('#date').val();
+    var place = $('#place').val();
 
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'CollegeDegreeDocuments/insertCollegeDegreeDocument',
+        url: rootDirImage + 'Presentations/insertPresentationDocument',
         data: {
-            'pCollegeDegreeType': collegeDegreeType,
-            'pYear': year,
-            'pInstitution': institution,
-            'pCountry': country
+            'pEventDate': date,
+            'pPlace': place,
+            'pName': name,
+            'pEvent': name
         },
         success: function (data) {
             $('#addDegreeModal').modal("hide");
@@ -69,18 +67,17 @@ function getCollegeDegreeDocuments() {
     $.ajax({
         type: 'POST',
         dataType: 'json',
-        url: rootDirImage + 'CollegeDegreeDocuments/getCollegeDegreeDocumentList',
+        url: rootDirImage + 'Presentations/getPresentationsDocumentList',
         data: {},
         success: function (data) {
             for (var i = 0; i < data.Item1.length; i++) {
                 var obj = data.Item1[i];
 
                 var row = "<tr>" + 
-                            `<td>${obj.Description}</td>` +
                             `<td>${obj.Name}</td>` +
-                            `<td>${obj.Year}</td>` +
-                            `<td>${obj.Institution}</td>` +
-                            `<td>${obj.Country}</td>` +
+                            `<td>03/0${i+1}/2021</td>` +
+                            `<td>${obj.Place}</td>` +
+                            `<td>${obj.Event}</td>` +
                             `<td><button type="button" class="btn btn-primary" style="margin-top:0px; margin-bottom:0px;";>Ver archivos</button></td>`
                         "</tr>";
 
